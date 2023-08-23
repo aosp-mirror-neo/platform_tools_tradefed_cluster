@@ -180,10 +180,13 @@ def NotifyRequestState(request_id, force=False):
   if not request:
     logging.warning("Could not find request for request_id %s", request_id)
     return None
-  if not (force or request.notify_state_change):
-    logging.warning("Skipping notification for request_id %s because it is not"
-                    " dirty and we are not forcing notification.",
-                    request.key.id())
+  changed_or_forced = force or request.notify_state_change
+  if not (common.IsFinalRequestState(request.state) or (changed_or_forced)):
+    logging.warning(
+        "Skipping notification for request_id %s because it is not"
+        " final, not dirty, and we are not forcing notification.",
+        request.key.id(),
+    )
     return request
   logging.debug(
       "NotifyRequestState notify request %s to %s state with reason %s",

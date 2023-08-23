@@ -758,7 +758,7 @@ class RequestManagerTest(testbed_dependent_test.TestbedDependentTest):
     self.assertEqual(self.START_TIME, request.start_time)
     self.assertEqual(self.END_TIME, request.end_time)
     self.assertIsNone(request.cancel_reason)
-    self.assertFalse(mock_add.called)
+    mock_add.assert_called_once()
 
   @mock.patch.object(task_scheduler, "AddTask")
   @mock.patch.object(common, "Now")
