@@ -6,6 +6,8 @@
 #
 # Description:
 #   Tools for configs.
+
+load("//third_party/bazel_rules/rules_python/python:py_test.bzl", "py_test")
 load("//tradefed_cluster:adapter.bzl", "proto_library", "py_library", "py_proto_library", "third_party")
 
 package(

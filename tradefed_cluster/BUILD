@@ -1,7 +1,8 @@
+# A test infra software for Android testing labs.
+
+load("//third_party/bazel_rules/rules_python/python:py_test.bzl", "py_test")
 load("//tools/build_defs/license:license.bzl", "license")
 load("//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
-
-# A test infra software for Android testing labs.
 load("//tradefed_cluster:adapter.bzl", "py_library", "pytype_strict_library", "third_party")
 
 package(
