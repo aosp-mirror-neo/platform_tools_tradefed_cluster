@@ -73,6 +73,8 @@ HOSTNAME_KEY = "hostname"
 HOST_NOTE_ID_KEY = "host_note_id"
 DEVICE_NOTE_ID_KEY = "device_note_id"
 TEST_HARNESS_START_TIME_MS = "test_harness_start_time_ms"
+IS_STUB_DEVICE_KEY = "is_stub_device"
+DISPLAY_SERIAL_KEY = "display_serial"
 
 DEVICE_SNAPSHOT_TYPES = ("DeviceSnapshot", "DEVICE_SNAPSHOT")
 HOST_STATE_CHANGED_TYPES = ("HostStateChanged", "HOST_STATE_CHANGED")
@@ -544,6 +546,8 @@ def _UpdateDeviceInNDB(device, device_key, device_data, host_event):
   device.battery_level = device_data.get(BATTERY_LEVEL_KEY)
   device.extra_info[BATTERY_LEVEL_KEY] = device.battery_level
   device.device_type = device_type
+  device.is_stub_device = device_data.get(IS_STUB_DEVICE_KEY)
+  device.display_serial = device_data.get(DISPLAY_SERIAL_KEY)
 
   device_state_history, device_history = _UpdateDevicePropertiesAndGetHistory(
       device, host_event.timestamp, state=device_state, run_target=run_target)

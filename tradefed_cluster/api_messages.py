@@ -683,6 +683,8 @@ class DeviceInfo(messages.Message):
     test_harness: test harness the device is running under.
     recovery_state: recovery state for the host, e.g. assigned, fixed, verified.
     last_recovery_time: the last time the device gets recovered.
+    is_stub_device: specifies if the device is a stub device.
+    display_serial: the serial used for display purpose.
   """
   device_serial = messages.StringField(1)
   lab_name = messages.StringField(2)
@@ -714,6 +716,8 @@ class DeviceInfo(messages.Message):
   test_harness = messages.StringField(26)
   recovery_state = messages.StringField(27)
   last_recovery_time = message_types.DateTimeField(28)
+  is_stub_device = messages.BooleanField(29)
+  display_serial = messages.StringField(30)
 
 
 class DeviceInfoCollection(messages.Message):

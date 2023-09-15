@@ -1795,6 +1795,8 @@ class DeviceInfo(ndb.Expando):
     flated_extra_info: flated extra info for the device
     recovery_state: recovery state for the host, e.g. assigned, fixed, verified.
     last_recovery_time: last time the device was recovered.
+    is_stub_device: specifies if the device is a stub device.
+    display_serial: the serial used for display purpose.
   """
   device_serial = ndb.StringProperty()
   run_target = ndb.StringProperty()
@@ -1829,6 +1831,8 @@ class DeviceInfo(ndb.Expando):
       repeated=True)
   recovery_state = ndb.StringProperty()
   last_recovery_time = ndb.DateTimeProperty()
+  is_stub_device = ndb.BooleanProperty(default=False)
+  display_serial = ndb.StringProperty()
 
   def _post_put_hook(self, future):
     if not env_config.CONFIG.use_elasticsearch:
@@ -1878,7 +1882,9 @@ def DeviceInfoToMessage(device_info_entity):
       test_harness=device_info_entity.test_harness,
       recovery_state=device_info_entity.recovery_state,
       flated_extra_info=device_info_entity.flated_extra_info,
-      last_recovery_time=device_info_entity.last_recovery_time)
+      last_recovery_time=device_info_entity.last_recovery_time,
+      is_stub_device=device_info_entity.is_stub_device,
+      display_serial=device_info_entity.display_serial)
 
 
 class DeviceInfoHistory(DeviceInfo):

@@ -128,7 +128,9 @@ class ClusterDeviceApi(remote.Service):
         test_harness=document.get("test_harness"),
         recovery_state=document.get("recovery_state"),
         flated_extra_info=document.get("flated_extra_info"),
-        last_recovery_time=last_recovery_time)
+        last_recovery_time=last_recovery_time,
+        is_stub_device=document.get("is_stub_device"),
+        display_serial=document.get("display_serial"))
 
   @api_common.method(
       DEVICE_LIST_RESOURCE,
