@@ -75,6 +75,8 @@ DEVICE_NOTE_ID_KEY = "device_note_id"
 TEST_HARNESS_START_TIME_MS = "test_harness_start_time_ms"
 IS_STUB_DEVICE_KEY = "is_stub_device"
 DISPLAY_SERIAL_KEY = "display_serial"
+PRECONFIGURED_IP_KEY = "preconfigured_ip"
+PRECONFIGURED_DEVICE_NUM_OFFSET_KEY = "preconfigured_device_num_offset"
 
 DEVICE_SNAPSHOT_TYPES = ("DeviceSnapshot", "DEVICE_SNAPSHOT")
 HOST_STATE_CHANGED_TYPES = ("HostStateChanged", "HOST_STATE_CHANGED")
@@ -481,7 +483,10 @@ def _UpdateDeviceInNDB(device, device_key, device_data, host_event):
   entities_to_update = []
   device_serial = _TransformDeviceSerial(
       host_event.hostname, device_data.get(DEVICE_SERIAL_KEY))
-  device_type = api_messages.GetDeviceType(device_serial)
+  device_type = api_messages.GetDeviceType(
+      device_serial,
+      device_data.get(IS_STUB_DEVICE_KEY),
+      device_data.get(PRECONFIGURED_IP_KEY))
 
   run_target = device_data.get(RUN_TARGET_KEY)
   product = device_data.get(PRODUCT_KEY)
@@ -548,6 +553,9 @@ def _UpdateDeviceInNDB(device, device_key, device_data, host_event):
   device.device_type = device_type
   device.is_stub_device = device_data.get(IS_STUB_DEVICE_KEY)
   device.display_serial = device_data.get(DISPLAY_SERIAL_KEY)
+  device.preconfigured_ip = device_data.get(PRECONFIGURED_IP_KEY)
+  device.preconfigured_device_num_offset = device_data.get(
+      PRECONFIGURED_DEVICE_NUM_OFFSET_KEY)
 
   device_state_history, device_history = _UpdateDevicePropertiesAndGetHistory(
       device, host_event.timestamp, state=device_state, run_target=run_target)

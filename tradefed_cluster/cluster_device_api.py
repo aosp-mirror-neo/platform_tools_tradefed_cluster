@@ -130,7 +130,10 @@ class ClusterDeviceApi(remote.Service):
         flated_extra_info=document.get("flated_extra_info"),
         last_recovery_time=last_recovery_time,
         is_stub_device=document.get("is_stub_device"),
-        display_serial=document.get("display_serial"))
+        display_serial=document.get("display_serial"),
+        preconfigured_ip=document.get("preconfigured_ip"),
+        preconfigured_device_num_offset=document.get(
+            "preconfigured_device_num_offset"))
 
   @api_common.method(
       DEVICE_LIST_RESOURCE,

@@ -415,10 +415,17 @@ class ApiMessagesTest(api_test.ApiTest):
         api_messages.GetDeviceType('gce-device-11'))
     self.assertEqual(
         api_messages.DeviceTypeMessage.REMOTE,
-        api_messages.GetDeviceType('remote-device-0'))
+        api_messages.GetDeviceType(
+            'remote-device-0',
+            is_stub_device=False,
+            preconfigured_ip='1.2.3.4'))
     self.assertEqual(
         api_messages.DeviceTypeMessage.LOCAL_VIRTUAL,
         api_messages.GetDeviceType('local-virtual-device-0'))
+    self.assertEqual(
+        api_messages.DeviceTypeMessage.REMOTE_VIRTUAL,
+        api_messages.GetDeviceType(
+            'gce-device-11', is_stub_device=True, preconfigured_ip='1.2.3.4'))
 
   def _CreateMockHostInfoEntity(self):
     """Helper function to get mock host info entity."""

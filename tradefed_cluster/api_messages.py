@@ -611,17 +611,24 @@ class DeviceTypeMessage(messages.Enum):
   GCE = 4
   REMOTE = 5
   LOCAL_VIRTUAL = 6
+  REMOTE_VIRTUAL = 7
 
 
-def GetDeviceType(serial):
+def GetDeviceType(serial, is_stub_device=False, preconfigured_ip=None):
   """Helper to get a device type from a serial.
 
   Args:
     serial: Device serial
+    is_stub_device: If the device is a stub device
+    preconfigured_ip: The preconfigured ip for the device
 
   Returns:
-    A DeviceTypeMessage for the given serial
+    A DeviceTypeMessage for the given information
   """
+  # Return REMOTE_VIRTUAL if the device has a preconfigured stub
+  if is_stub_device and preconfigured_ip:
+    return DeviceTypeMessage.REMOTE_VIRTUAL
+
   # If a serial has a host prefix, remove it.
   if ":" in serial:
     serial = serial.split(":", 2)[1]
@@ -685,6 +692,8 @@ class DeviceInfo(messages.Message):
     last_recovery_time: the last time the device gets recovered.
     is_stub_device: specifies if the device is a stub device.
     display_serial: the serial used for display purpose.
+    preconfigured_ip: the preconfigured ip if the device is on a remote host.
+    preconfigured_device_num_offset: the preconfigured device number offset.
   """
   device_serial = messages.StringField(1)
   lab_name = messages.StringField(2)
@@ -718,6 +727,8 @@ class DeviceInfo(messages.Message):
   last_recovery_time = message_types.DateTimeField(28)
   is_stub_device = messages.BooleanField(29)
   display_serial = messages.StringField(30)
+  preconfigured_ip = messages.StringField(31)
+  preconfigured_device_num_offset = messages.IntegerField(32)
 
 
 class DeviceInfoCollection(messages.Message):

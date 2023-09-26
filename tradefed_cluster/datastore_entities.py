@@ -1797,6 +1797,8 @@ class DeviceInfo(ndb.Expando):
     last_recovery_time: last time the device was recovered.
     is_stub_device: specifies if the device is a stub device.
     display_serial: the serial used for display purpose.
+    preconfigured_ip: the preconfigured ip if the device is on a remote host.
+    preconfigured_device_num_offset: the preconfigured device number offset.
   """
   device_serial = ndb.StringProperty()
   run_target = ndb.StringProperty()
@@ -1833,6 +1835,8 @@ class DeviceInfo(ndb.Expando):
   last_recovery_time = ndb.DateTimeProperty()
   is_stub_device = ndb.BooleanProperty(default=False)
   display_serial = ndb.StringProperty()
+  preconfigured_ip = ndb.StringProperty()
+  preconfigured_device_num_offset = ndb.IntegerProperty()
 
   def _post_put_hook(self, future):
     if not env_config.CONFIG.use_elasticsearch:
@@ -1884,7 +1888,9 @@ def DeviceInfoToMessage(device_info_entity):
       flated_extra_info=device_info_entity.flated_extra_info,
       last_recovery_time=device_info_entity.last_recovery_time,
       is_stub_device=device_info_entity.is_stub_device,
-      display_serial=device_info_entity.display_serial)
+      display_serial=device_info_entity.display_serial,
+      preconfigured_ip=device_info_entity.preconfigured_ip,
+      preconfigured_device_num_offset=device_info_entity.preconfigured_device_num_offset)
 
 
 class DeviceInfoHistory(DeviceInfo):
