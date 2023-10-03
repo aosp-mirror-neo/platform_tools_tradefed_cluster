@@ -18,7 +18,6 @@ import datetime
 import gzip
 import json
 import os.path
-import unittest
 
 import mock
 import six
@@ -32,6 +31,7 @@ from tradefed_cluster import device_info_reporter
 from tradefed_cluster import env_config
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import email_sender
+import unittest
 
 DATE = datetime.date(2016, 7, 25)
 TIMESTAMP = datetime.datetime(2016, 7, 26)

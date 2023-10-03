@@ -14,14 +14,13 @@
 
 """Tests predefined_message_api module."""
 
-import unittest
-
 from protorpc import protojson
-
 from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import datastore_entities
 from tradefed_cluster.util import ndb_shim as ndb
+
+import unittest
 
 
 class PredefinedMessageApiTest(api_test.ApiTest):

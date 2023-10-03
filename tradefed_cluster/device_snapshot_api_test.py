@@ -15,7 +15,6 @@
 """Tests for tradefed_cluster.device_snapshot_api."""
 
 import datetime
-import unittest
 
 import mock
 from protorpc import protojson
@@ -26,6 +25,7 @@ from tradefed_cluster import api_test
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import device_info_reporter
 from tradefed_cluster import device_snapshot_api
+import unittest
 
 DATE_0 = datetime.date(2015, 11, 2)
 UPDATE_TIME_0 = datetime.datetime(2015, 11, 2, 12)
@@ -108,4 +108,3 @@ class DeviceSnapshotApiTest(api_test.ApiTest):
 
 if __name__ == '__main__':
   unittest.main()
-

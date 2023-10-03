@@ -18,8 +18,6 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import unittest
-
 import hamcrest
 import mock
 from six.moves import range
@@ -34,6 +32,7 @@ from tradefed_cluster import env_config
 from tradefed_cluster import request_manager
 from tradefed_cluster import request_sync_monitor
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 
 class CoordinatorApiTest(api_test.ApiTest):

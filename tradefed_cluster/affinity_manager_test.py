@@ -14,10 +14,10 @@
 
 """Unit tests for affinity_manager."""
 
-import unittest
-
 from tradefed_cluster import affinity_manager
 from tradefed_cluster import testbed_dependent_test
+
+import unittest
 
 
 class AffinityManagerTest(testbed_dependent_test.TestbedDependentTest):

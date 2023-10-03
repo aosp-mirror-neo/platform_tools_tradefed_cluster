@@ -17,7 +17,6 @@
 import copy
 import datetime
 import json
-import unittest
 
 import mock
 
@@ -34,6 +33,7 @@ from tradefed_cluster import env_config
 from tradefed_cluster import host_event
 from tradefed_cluster import metric
 from tradefed_cluster import testbed_dependent_test
+import unittest
 
 
 class DeviceManagerTest(testbed_dependent_test.TestbedDependentTest):

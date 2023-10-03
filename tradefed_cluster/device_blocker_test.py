@@ -16,11 +16,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import unittest
-
 from tradefed_cluster import datastore_test_util
 from tradefed_cluster import device_blocker
 from tradefed_cluster import testbed_dependent_test
+
+import unittest
 
 
 class DeviceBlockerTest(testbed_dependent_test.TestbedDependentTest):

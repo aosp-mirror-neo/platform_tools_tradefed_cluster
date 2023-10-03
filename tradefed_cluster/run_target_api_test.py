@@ -14,14 +14,13 @@
 
 """Tests for Run Target API."""
 
-import unittest
-
 from protorpc import protojson
-
 from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import datastore_test_util
 from tradefed_cluster import run_target_api
+
+import unittest
 
 
 class RunTargetApiTest(api_test.ApiTest):

@@ -21,7 +21,6 @@ from __future__ import print_function
 import collections
 import datetime
 import json
-import unittest
 
 from protorpc import protojson
 from six.moves import zip
@@ -33,6 +32,7 @@ from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import common
 from tradefed_cluster import datastore_entities
+import unittest
 
 TIMESTAMP = datetime.datetime(2015, 5, 7)
 

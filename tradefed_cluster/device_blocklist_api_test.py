@@ -12,14 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Tests for device blocklist api."""
-import unittest
-
 from protorpc import protojson
 
 
 from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import datastore_test_util
+import unittest
 
 
 class DeviceBlocklistApiTest(api_test.ApiTest):

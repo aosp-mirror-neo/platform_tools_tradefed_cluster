@@ -15,7 +15,6 @@
 """Tests for Notifier Handler."""
 
 import json
-import unittest
 import zlib
 
 from googleapiclient import errors
@@ -29,6 +28,7 @@ from tradefed_cluster import notification_handler
 from tradefed_cluster import request_manager
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.services import task_scheduler
+import unittest
 
 
 class NotificationHandlerTest(testbed_dependent_test.TestbedDependentTest):

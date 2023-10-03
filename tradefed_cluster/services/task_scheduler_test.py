@@ -18,7 +18,6 @@ import datetime
 import json
 import pickle
 import threading
-import unittest
 
 import mock
 
@@ -29,6 +28,7 @@ from tradefed_cluster.services import task_scheduler
 from tradefed_cluster.util import ndb_shim as ndb
 
 from google3.pyglib import stringutil
+import unittest
 
 
 

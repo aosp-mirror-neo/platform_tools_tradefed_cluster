@@ -14,10 +14,10 @@
 
 """Unit tests for host_event module."""
 
-import unittest
-
 from tradefed_cluster import api_messages
 from tradefed_cluster import host_event
+
+import unittest
 
 
 class HostEventTest(unittest.TestCase):
@@ -83,7 +83,7 @@ class HostEventTest(unittest.TestCase):
     self.assertEqual("test", event.cluster_id)
     self.assertEqual("test.mtv.corp.example.com", event.hostname)
     self.assertEqual("alab", event.lab_name)
-    self.assertEqual(2, len(event.device_info))
+    self.assertLen(event.device_info, 2)
     self.assertEqual(api_messages.HostState.RUNNING.name, event.host_state)
     self.assertEqual("v1", event.test_harness_version)
     self.assertEqual("TRADEFED", event.test_harness)

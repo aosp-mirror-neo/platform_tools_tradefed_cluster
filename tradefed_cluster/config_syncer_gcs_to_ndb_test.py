@@ -14,7 +14,6 @@
 
 """Tests for config_syncer_bs_to_ndb.py."""
 import os
-import unittest
 from unittest import mock
 
 import six
@@ -27,6 +26,7 @@ from tradefed_cluster.configs import lab_config as lab_config_util
 from tradefed_cluster.configs import unified_lab_config as unified_lab_config_util
 from tradefed_cluster.util import ndb_shim as ndb
 from tradefed_cluster.services import acl_service
+import unittest
 
 TEST_DATA_PATH = 'test_yaml'
 LAB_CONFIG_FILE = 'dockerized-tf.yaml'

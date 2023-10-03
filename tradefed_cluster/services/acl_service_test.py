@@ -1,5 +1,4 @@
 """Tests for tradefed_cluster.services.host_account_validator."""
-import unittest
 from unittest import mock
 
 import endpoints
@@ -12,6 +11,8 @@ from tradefed_cluster import env_config
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.services import acl_service
 import webtest
+
+import unittest
 
 
 class StubDeviceRequest(messages.Message):

@@ -20,7 +20,6 @@ from __future__ import print_function
 
 import datetime
 import json
-import unittest
 
 from six.moves import range
 
@@ -31,6 +30,7 @@ from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 TIMESTAMP_OLD = datetime.datetime(2015, 5, 7)
 TIMESTAMP_NEW = datetime.datetime(2015, 9, 29)

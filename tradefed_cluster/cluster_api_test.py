@@ -15,15 +15,15 @@
 """Tests cluster_api module."""
 
 import datetime
-import unittest
 
 from protorpc import protojson
-
 from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import cluster_api
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
+
+import unittest
 
 
 class ClusterApiTest(api_test.ApiTest):

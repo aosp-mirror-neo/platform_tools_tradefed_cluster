@@ -20,7 +20,6 @@ from __future__ import print_function
 
 import datetime
 import json
-import unittest
 
 import hamcrest
 import mock
@@ -38,6 +37,7 @@ from tradefed_cluster import env_config
 from tradefed_cluster import request_manager
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 
 class CommandAttemptMonitorTest(testbed_dependent_test.TestbedDependentTest):

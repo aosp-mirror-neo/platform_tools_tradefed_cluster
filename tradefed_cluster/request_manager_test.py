@@ -20,7 +20,6 @@ from __future__ import print_function
 
 import datetime
 import json
-import unittest
 import zlib
 
 import mock
@@ -36,6 +35,7 @@ from tradefed_cluster import request_manager
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.services import task_scheduler
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 
 REQUEST_ID = "1001"

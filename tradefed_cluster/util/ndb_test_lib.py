@@ -18,12 +18,11 @@ from __future__ import print_function
 
 import os
 
-from absl.testing import absltest
-
+from google.auth import credentials
 from tradefed_cluster.util import datastore_emulator
 from tradefed_cluster.util import ndb_shim as ndb
 
-from google.auth import credentials
+import unittest
 
 # Use a single datastore emulator instance per module, as its creation
 # is expensive.
@@ -43,7 +42,7 @@ def NdbContextManager():
           legacy_data=False)
 
 
-class NdbTest(absltest.TestCase):
+class NdbTest(unittest.TestCase):
   """Makes ndb context manager available for tests."""
 
   @classmethod

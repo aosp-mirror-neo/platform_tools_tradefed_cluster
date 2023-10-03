@@ -2,10 +2,8 @@
 
 import datetime
 import json
-import unittest
 
 import mock
-
 from tradefed_cluster import command_event_test_util
 from tradefed_cluster import commander
 from tradefed_cluster import common
@@ -13,6 +11,8 @@ from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
 from tradefed_cluster import request_sync_monitor
 from tradefed_cluster import testbed_dependent_test
+
+import unittest
 
 REQUEST_ID = 'req_id'
 TIMESTAP_INT = 1000

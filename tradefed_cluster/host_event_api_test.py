@@ -15,7 +15,6 @@
 """Tests host_event_api module."""
 
 import datetime
-import unittest
 
 import mock
 
@@ -26,6 +25,7 @@ from tradefed_cluster import device_manager
 from tradefed_cluster import host_event
 from tradefed_cluster import host_event_api
 from tradefed_cluster.services import task_scheduler
+import unittest
 
 device_info_emulator = {
     'product': 'unknown',

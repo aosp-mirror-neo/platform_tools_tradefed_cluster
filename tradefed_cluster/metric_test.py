@@ -15,12 +15,12 @@
 """Tests for google3.wireless.android.test_tools.tradefed_cluster.metric."""
 
 import datetime
-import unittest
 
 import mock
 import pytz
-
 from tradefed_cluster import metric
+
+import unittest
 
 TIMESTAMP_NAIVE = datetime.datetime(2017, 10, 11)
 TIMESTAMP_AWARE = pytz.utc.localize(datetime.datetime(2017, 10, 10, 21))

@@ -20,7 +20,6 @@ from __future__ import print_function
 import copy
 import datetime
 import re
-import unittest
 
 import mock
 
@@ -33,6 +32,7 @@ from tradefed_cluster import datastore_test_util
 from tradefed_cluster import datastore_util
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 
 class DatastoreUtilTest(testbed_dependent_test.TestbedDependentTest):

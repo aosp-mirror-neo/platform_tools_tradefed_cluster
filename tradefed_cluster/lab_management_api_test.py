@@ -16,7 +16,6 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import unittest
 
 from protorpc import protojson
 from six.moves import zip
@@ -26,6 +25,7 @@ from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
+import unittest
 
 
 class LabManagementApiTest(api_test.ApiTest):

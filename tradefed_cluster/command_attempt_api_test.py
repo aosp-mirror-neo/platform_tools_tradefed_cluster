@@ -15,7 +15,6 @@
 """Tests for command attempt API."""
 
 import datetime
-import unittest
 
 from protorpc import protojson
 
@@ -27,6 +26,7 @@ from tradefed_cluster import api_test
 from tradefed_cluster import common
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
+import unittest
 
 TIME = datetime.datetime(2018, 8, 20, 0, 0, 0)
 TIME_DELTA = datetime.timedelta(minutes=1)

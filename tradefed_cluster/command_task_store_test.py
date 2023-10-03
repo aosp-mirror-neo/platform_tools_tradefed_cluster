@@ -14,11 +14,11 @@
 
 """Tests for command_task_store."""
 
-import unittest
-
 from tradefed_cluster import command_task_store
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import testbed_dependent_test
+
+import unittest
 
 
 class TaskStoreTest(testbed_dependent_test.TestbedDependentTest):

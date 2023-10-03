@@ -13,12 +13,12 @@
 # limitations under the License.
 
 """Tests for server."""
-import unittest
 import werkzeug
 
 
 from tradefed_cluster import server
 from tradefed_cluster import testbed_dependent_test
+import unittest
 
 
 def CreateMockApp(status_code=200):

@@ -20,7 +20,6 @@ from __future__ import print_function
 
 import datetime
 import json
-import unittest
 import zlib
 
 import mock
@@ -38,6 +37,7 @@ from tradefed_cluster import datastore_entities
 from tradefed_cluster import request_manager
 from tradefed_cluster import request_sync_monitor
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 START_TIME = datetime.datetime(2015, 1, 1)
 END_TIME = datetime.datetime(2015, 5, 7)

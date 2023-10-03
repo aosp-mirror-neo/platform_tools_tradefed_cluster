@@ -14,12 +14,11 @@
 
 """Tests for command_event_api module."""
 
-import unittest
-
 import mock
-
 from tradefed_cluster import api_test
 from tradefed_cluster import command_event_handler
+
+import unittest
 
 
 class CommandEventApiTest(api_test.ApiTest):

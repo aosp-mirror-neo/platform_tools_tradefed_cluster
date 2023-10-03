@@ -16,7 +16,6 @@
 
 import datetime
 import json
-import unittest
 import zlib
 
 import mock
@@ -32,6 +31,7 @@ from tradefed_cluster import datastore_test_util
 from tradefed_cluster import notifier
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.services import task_scheduler
+import unittest
 
 from google3.pyglib import stringutil
 

@@ -20,7 +20,6 @@ from __future__ import print_function
 import base64
 import datetime
 import json
-import unittest
 
 import mock
 
@@ -31,6 +30,7 @@ from tradefed_cluster import lab_resource_monitor
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
 from tradefed_cluster.util import pubsub_client as pubsub_client_lib
+import unittest
 
 
 class LabResourceMonitorTest(testbed_dependent_test.TestbedDependentTest):

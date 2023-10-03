@@ -13,13 +13,13 @@
 # limitations under the License.
 """Tests for tradefed_cluster.test_harness_image_api."""
 import datetime
-import unittest
 
 from protorpc import protojson
-
 from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import datastore_test_util
+
+import unittest
 
 _FAKE_SYNC_TIME = datetime.datetime(2020, 12, 25)
 

@@ -13,17 +13,16 @@
 # limitations under the License.
 """Tests for harness_image_metadata_syncer."""
 import datetime
-import unittest
 
 from absl.testing import parameterized
-
 import mock
-
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
 from tradefed_cluster import harness_image_metadata_syncer
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
+
+import unittest
 
 
 class HarnessImageMetadataSyncerTest(parameterized.TestCase,

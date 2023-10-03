@@ -15,7 +15,6 @@
 """Tests for the commander module."""
 
 import datetime
-import unittest
 
 import hamcrest
 import mock
@@ -36,6 +35,7 @@ from tradefed_cluster import request_manager
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.plugins import base as plugin_base
 from tradefed_cluster.util import command_util
+import unittest
 
 REQUEST_ID = "1"
 COMMAND_ID = 5629499534213120

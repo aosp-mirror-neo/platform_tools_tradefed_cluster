@@ -14,8 +14,6 @@
 
 """Unit Tests for command_error_type_config module."""
 
-import unittest
-
 from absl.testing import parameterized
 
 
@@ -23,6 +21,7 @@ from tradefed_cluster import command_error_type_config
 from tradefed_cluster import common
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import testbed_dependent_test
+import unittest
 
 
 class CommandCommandErrorTypeConfigTest(

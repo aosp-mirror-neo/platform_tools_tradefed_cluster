@@ -15,7 +15,6 @@
 """Tests for device_history_cleaner."""
 
 import datetime
-import unittest
 
 import mock
 import six
@@ -25,6 +24,7 @@ import webtest
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import device_history_cleaner
 from tradefed_cluster import testbed_dependent_test
+import unittest
 
 TIMESTAMP_1 = datetime.datetime(2015, 5, 7)
 TIMESTAMP_2 = datetime.datetime(2015, 5, 8)

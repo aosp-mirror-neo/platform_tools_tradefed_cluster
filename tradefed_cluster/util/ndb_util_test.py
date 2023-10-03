@@ -13,12 +13,11 @@
 # limitations under the License.
 """Tests for ndb_util."""
 
-import unittest
-
 from google.cloud import ndb
-
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_util
+
+import unittest
 
 
 def _MockModelRenameFooToBar(obj):

@@ -15,7 +15,6 @@
 
 import datetime
 import json
-import unittest
 import endpoints
 
 import mock
@@ -33,6 +32,7 @@ from tradefed_cluster import datastore_test_util
 from tradefed_cluster import device_manager
 from tradefed_cluster import note_manager
 from tradefed_cluster.services import acl_service
+import unittest
 
 
 class ClusterHostApiTest(api_test.ApiTest):

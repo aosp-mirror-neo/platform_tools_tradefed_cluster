@@ -15,7 +15,6 @@
 """Tests for command_task_api module."""
 
 import datetime
-import unittest
 
 import grpc
 import mock
@@ -36,6 +35,7 @@ from tradefed_cluster import datastore_entities
 from tradefed_cluster import datastore_test_util
 from tradefed_cluster import env_config  
 from tradefed_cluster import metric
+import unittest
 
 
 TIMESTAMP = datetime.datetime(2018, 4, 30, 0, 0, 0)

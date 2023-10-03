@@ -14,7 +14,6 @@
 """Tests cluster_device_api."""
 
 import datetime
-import unittest
 
 import mock
 from protorpc import protojson
@@ -31,6 +30,7 @@ from tradefed_cluster import device_manager
 from tradefed_cluster import note_manager
 from tradefed_cluster.util import elasticsearch_client
 from tradefed_cluster import env_config
+import unittest
 
 
 class ClusterDeviceApiTest(api_test.ApiTest):

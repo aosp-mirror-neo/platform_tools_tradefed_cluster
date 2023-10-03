@@ -19,7 +19,6 @@ from __future__ import division
 from __future__ import print_function
 
 import datetime
-import unittest
 
 import hamcrest
 import mock
@@ -39,6 +38,7 @@ from tradefed_cluster import request_manager
 from tradefed_cluster import request_sync_monitor
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 
 TIMESTAMP_INT = command_event_test_util.TIMESTAMP_INT

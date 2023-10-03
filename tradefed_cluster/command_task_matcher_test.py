@@ -18,13 +18,13 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import unittest
-
 import six
 from tradefed_cluster import api_messages
 from tradefed_cluster import command_task_matcher
 from tradefed_cluster import common
 from tradefed_cluster import datastore_entities
+
+import unittest
 
 CLUSTER = 'cluster'
 HOSTNAME = 'hostname'
@@ -104,8 +104,8 @@ class CommandTaskMatcherTest(unittest.TestCase):
          self._CreateDeviceInfo('d2', 'run_target2', 'g1')])
     matcher = command_task_matcher.CommandTaskMatcher(host)
     group = matcher._groups['g1']
-    self.assertEqual(1, len(group.run_targets))
-    self.assertEqual(1, len(group.run_targets['run_target2'].devices))
+    self.assertLen(group.run_targets, 1)
+    self.assertLen(group.run_targets['run_target2'].devices, 1)
 
   def testBuildRunTargetToDevices(self):
     host = self._CreateHostInfo(
@@ -129,7 +129,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
     task = self._CreateCommandTask(
         '1', [[datastore_entities.RunTarget(name='run_target2')]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(1, len(matched_devices))
+    self.assertLen(matched_devices, 1)
     d = matched_devices[0]
     self.assertEqual('d2', d.device_serial)
 
@@ -150,7 +150,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
                 )
         ]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(1, len(matched_devices))
+    self.assertLen(matched_devices, 1)
     d = matched_devices[0]
     self.assertEqual('d3', d.device_serial)
     self.assertEqual('READY', d.attributes['sim_state'])
@@ -172,7 +172,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
                 )
         ]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(1, len(matched_devices))
+    self.assertLen(matched_devices, 1)
     d = matched_devices[0]
     self.assertEqual('d3', d.device_serial)
     self.assertEqual('80', d.attributes['battery_level'])
@@ -194,7 +194,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
                 )
         ]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(1, len(matched_devices))
+    self.assertLen(matched_devices, 1)
     d = matched_devices[0]
     self.assertEqual('d3', d.device_serial)
 
@@ -209,7 +209,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
         [[datastore_entities.RunTarget(name='run_target1'),
           datastore_entities.RunTarget(name='run_target2')]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
     d1 = matched_devices[0]
     d2 = matched_devices[1]
     self.assertEqual(
@@ -250,7 +250,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
         [[self._CreateRunTargetRequirement('rt1', [('sim_state', 'READY')]),
           self._CreateRunTargetRequirement('rt1', [('sim_state', 'READY')])]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
     d1 = matched_devices[0]
     d2 = matched_devices[1]
     self.assertEqual(
@@ -284,7 +284,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
         [[datastore_entities.RunTarget(name='run_target1')],
          [datastore_entities.RunTarget(name='run_target3')]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
     d1 = matched_devices[0]
     d2 = matched_devices[1]
     self.assertEqual(
@@ -326,7 +326,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
     task.allow_partial_device_match = True
     self.assertTrue(task.allow_partial_device_match)
     matched_devices = matcher.Match(task)
-    self.assertEqual(3, len(matched_devices))
+    self.assertLen(matched_devices, 3)
     d1 = matched_devices[0]
     d2 = matched_devices[1]
     d3 = matched_devices[2]
@@ -347,7 +347,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
          [datastore_entities.RunTarget(name='run_target3')]])
     matched_devices = matcher.Match(task)
     matcher.RemoveDeviceGroups(matched_devices)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
     d1 = matched_devices[0]
     d2 = matched_devices[1]
     self.assertEqual(
@@ -386,7 +386,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
         [[self._CreateRunTargetRequirement('rt1', [('sim_state', 'READY')])],
          [self._CreateRunTargetRequirement('rt1', [('sim_state', 'READY')])]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
     d1 = matched_devices[0]
     d2 = matched_devices[1]
     self.assertEqual(
@@ -416,7 +416,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
     task = self._CreateCommandTask(
         '2', [[datastore_entities.RunTarget(name='run_target2')]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(1, len(matched_devices))
+    self.assertLen(matched_devices, 1)
     d = matched_devices[0]
     matcher.RemoveDeviceGroups([d])
     self.assertIsNone(matcher._groups.get('g1', None))
@@ -439,7 +439,7 @@ class CommandTaskMatcherTest(unittest.TestCase):
         [[datastore_entities.RunTarget(name='run_target1'),
           datastore_entities.RunTarget(name='run_target2')]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
 
     matcher.RemoveDeviceGroups(matched_devices)
 
@@ -462,14 +462,14 @@ class CommandTaskMatcherTest(unittest.TestCase):
         [[datastore_entities.RunTarget(name='run_target1')],
          [datastore_entities.RunTarget(name='run_target3')]])
     matched_devices = matcher.Match(task)
-    self.assertEqual(2, len(matched_devices))
+    self.assertLen(matched_devices, 2)
 
     matcher.RemoveDeviceGroups(matched_devices)
 
     self.assertIsNone(matcher._groups.get('g1', None))
     self.assertIsNone(matcher._groups.get('g2', None))
     for devices in six.itervalues(matcher._run_target_index):
-      self.assertEqual(0, len(devices))
+      self.assertEmpty(devices)
 
   def testGetRunTargets(self):
     host = self._CreateHostInfo(

@@ -19,7 +19,6 @@ from __future__ import print_function
 
 import datetime
 import json
-import unittest
 
 import mock
 from protorpc import protojson
@@ -35,6 +34,7 @@ from tradefed_cluster import device_manager
 from tradefed_cluster import device_monitor
 from tradefed_cluster import testbed_dependent_test
 from tradefed_cluster.util import ndb_shim as ndb
+import unittest
 
 
 class DeviceMonitorTest(testbed_dependent_test.TestbedDependentTest):

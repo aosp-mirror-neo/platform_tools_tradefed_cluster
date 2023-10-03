@@ -14,10 +14,9 @@
 
 """Tests for google3.wireless.android.test_tools.tradefed_cluster.common."""
 import datetime
-import unittest
 import six
-
 from tradefed_cluster import common
+import unittest
 
 
 # GPyLint does not recognize the ClassProperty in the common module.
