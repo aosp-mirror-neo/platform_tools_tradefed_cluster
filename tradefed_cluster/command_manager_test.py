@@ -1190,8 +1190,18 @@ class CommandManagerTest(testbed_dependent_test.TestbedDependentTest):
   def test_GetCommandMaxDeviceLostCount(self):
     expected_max_device_count = 6
     command = self._CreateCommand(run_count=80)
-    self.assertEqual(expected_max_device_count,
-                     command_manager._GetCommandMaxDeviceLostCount(command))
+    self.assertEqual(
+        expected_max_device_count,
+        command_manager._GetCommandMaxDeviceLostCount(command, 0),
+    )
+
+  def test_GetCommandMaxDeviceLostCount_withRetryOnTestFailures(self):
+    expected_max_device_count = 6
+    command = self._CreateCommand(run_count=1)
+    self.assertEqual(
+        expected_max_device_count,
+        command_manager._GetCommandMaxDeviceLostCount(command, 5),
+    )
 
   def test_GetCommandMaxErrorCount(self):
     expected_max_device_count = 11

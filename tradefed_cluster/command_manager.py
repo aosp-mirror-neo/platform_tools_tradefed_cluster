@@ -435,7 +435,10 @@ def UpdateState(
         max_retry_on_test_failures=max_retry_on_test_failures,
         max_canceled_count=_GetCommandMaxCancelCount(command),
         max_error_count=_GetCommandMaxErrorCount(command),
-        max_devices_lost_count=_GetCommandMaxDeviceLostCount(command))
+        max_devices_lost_count=_GetCommandMaxDeviceLostCount(
+            command, max_retry_on_test_failures
+        ),
+    )
     start_time = summary.start_time
     end_time = summary.end_time
     error_reason = summary.GetErrorReason()
@@ -479,10 +482,13 @@ def _GetCommandMaxErrorCount(command):
   return MAX_ERROR_COUNT_BASE + int(command.run_count * MAX_ERROR_COUNT_RATIO)
 
 
-def _GetCommandMaxDeviceLostCount(command):
+def _GetCommandMaxDeviceLostCount(command, max_retry_on_test_failures):
   """Get a command's max device lost count."""
-  return MAX_DEVICE_LOST_COUNT_BASE + int(
-      command.run_count * MAX_DEVICE_LOST_COUNT_RATIO)
+  return max(
+      MAX_DEVICE_LOST_COUNT_BASE
+      + int(command.run_count * MAX_DEVICE_LOST_COUNT_RATIO),
+      max_retry_on_test_failures + 1,
+  )
 
 
 def _RescheduleOrDeleteTask(task_id,
