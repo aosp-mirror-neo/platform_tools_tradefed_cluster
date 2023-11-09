@@ -74,6 +74,7 @@ py_test(
     deps = [
         ":lab_config_lib",
         third_party("six"),
+        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -89,6 +90,7 @@ py_test(
     srcs_version = "PY3",
     deps = [
         ":unified_lab_config_lib",
+        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
