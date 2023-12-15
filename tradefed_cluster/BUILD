@@ -65,7 +65,6 @@ py_test(
         ":api_test_lib",
         ":datastore_test_util_lib",
         "//third_party/py/endpoints:endpoints_library",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/services:acl_service_lib",
         third_party("protorpc:protorpc_all"),
     ],
@@ -94,7 +93,6 @@ py_test(
     deps = [
         ":affinity_manager_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -165,7 +163,6 @@ py_test(
         ":api_messages_lib",
         ":api_test_lib",
         ":datastore_entities_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -244,7 +241,6 @@ py_test(
     deps = [
         ":api_test_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -288,7 +284,6 @@ py_test(
         ":device_manager_lib",
         ":env_config_lib",
         ":note_manager_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/protorpc:protorpc_all",
         "//third_party/py/pytz",
         "//tradefed_cluster/util:elasticsearch_client_lib",
@@ -330,7 +325,6 @@ py_test(
     deps = [
         ":api_test_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/services:acl_service_lib",
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("endpoints:endpoints_library"),
@@ -366,7 +360,6 @@ py_test(
         ":api_test_lib",
         ":datastore_entities_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -397,7 +390,6 @@ py_test(
     deps = [
         ":api_test_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -439,7 +431,6 @@ py_test(
         third_party("hamcrest"),
         third_party("mock"),
         third_party("webtest"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/six",
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
@@ -468,7 +459,6 @@ py_test(
         ":command_error_type_config_lib",
         ":testbed_dependent_test_lib",
         "//third_party/py/absl/testing:parameterized",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -495,10 +485,7 @@ py_test(
     python_version = "PY3",
     srcs_version = "PY3",
     tags = ["not_run:arm"],
-    deps = [
-        ":api_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
-    ],
+    deps = [":api_test_lib"],
 )
 
 pytype_strict_library(
@@ -532,7 +519,6 @@ py_test(
         ":command_event_handler_lib",
         ":command_event_test_util",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("hamcrest"),
         third_party("mock"),
@@ -563,7 +549,6 @@ py_test(
         ":command_event_lib",
         ":command_event_test_util",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -626,7 +611,6 @@ py_test(
         ":metric_lib",
         ":request_manager_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("hamcrest"),
         third_party("mock"),
@@ -644,7 +628,6 @@ py_test(
     deps = [
         ":command_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("hamcrest"),
         third_party("mock"),
@@ -690,7 +673,6 @@ py_test(
         ":affinity_manager_lib",
         ":api_test_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -720,7 +702,6 @@ py_test(
         ":command_task_matcher_lib",
         ":testbed_dependent_test_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -751,7 +732,6 @@ py_test(
         ":api_test_lib",
         ":datastore_test_util_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -781,7 +761,6 @@ py_test(
         ":command_task_store_lib",
         ":testbed_dependent_test_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -820,7 +799,6 @@ py_test(
         third_party("hamcrest"),
         third_party("mock"),
         third_party("webtest"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -851,7 +829,6 @@ py_test(
     deps = [
         ":common_lib",
         third_party("six"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -931,7 +908,6 @@ py_test(
         ":testbed_dependent_test_lib",
         third_party("cloudstorage"),
         third_party("six"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -965,7 +941,6 @@ py_test(
         ":api_test_lib",
         ":datastore_test_util_lib",
         ":request_sync_monitor_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1000,7 +975,6 @@ py_test(
         ":datastore_entities_lib",
         ":datastore_test_util_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1031,7 +1005,6 @@ py_test(
         ":datastore_test_util_lib",
         ":datastore_util_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("six"),
     ],
@@ -1079,7 +1052,6 @@ py_test(
         third_party("mock"),
         third_party("webtest"),
         third_party("six"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1117,7 +1089,6 @@ py_test(
         third_party("mock"),
         third_party("six"),
         third_party("webtest"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1153,7 +1124,6 @@ py_test(
         ":datastore_test_util_lib",
         ":device_manager_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("hamcrest"),
     ],
@@ -1193,7 +1163,6 @@ py_test(
         ":datastore_test_util_lib",
         ":device_monitor_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("mock"),
         third_party("webtest"),
@@ -1225,10 +1194,7 @@ py_test(
     python_version = "PY3",
     srcs_version = "PY3",
     tags = ["not_run:arm"],
-    deps = [
-        ":api_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
-    ],
+    deps = [":api_test_lib"],
 )
 
 pytype_strict_library(
@@ -1259,7 +1225,6 @@ py_test(
     deps = [
         ":api_test_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1291,7 +1256,6 @@ py_test(
         ":api_test_lib",
         ":datastore_test_util_lib",
         ":device_blocklist_api_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1318,7 +1282,6 @@ py_test(
         ":datastore_test_util_lib",
         ":device_blocker_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1376,7 +1339,6 @@ py_test(
         ":harness_image_metadata_syncer_lib",
         ":testbed_dependent_test_lib",
         "//third_party/py/absl/testing:parameterized",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("mock"),
     ],
@@ -1398,7 +1360,6 @@ py_test(
         ":testbed_dependent_test_lib",
         "//third_party/py/absl/testing:parameterized",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1413,7 +1374,6 @@ py_test(
     deps = [
         ":api_test_lib",
         ":common_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1436,7 +1396,6 @@ py_test(
         ":api_messages_lib",
         ":host_event_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1466,7 +1425,6 @@ py_test(
     deps = [
         ":lab_resource_monitor_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("mock"),
     ],
@@ -1496,7 +1454,6 @@ py_test(
         ":metric_lib",
         third_party("mock"),
         third_party("webtest"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1528,7 +1485,6 @@ py_test(
         ":datastore_test_util_lib",
         ":note_manager_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1561,7 +1517,6 @@ py_test(
         ":notification_handler_lib",
         ":testbed_dependent_test_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1595,7 +1550,6 @@ py_test(
         ":notifier_lib",
         ":testbed_dependent_test_lib",
         "//pyglib:stringutil",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/services:task_scheduler_lib",
         third_party("mock"),
         third_party("six"),
@@ -1633,7 +1587,6 @@ py_test(
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1663,10 +1616,7 @@ py_test(
     python_version = "PY3",
     srcs_version = "PY3",
     tags = ["not_run:arm"],
-    deps = [
-        ":api_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
-    ],
+    deps = [":api_test_lib"],
 )
 
 pytype_strict_library(
@@ -1700,7 +1650,6 @@ py_test(
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1740,7 +1689,6 @@ py_test(
         ":env_config_lib",
         ":request_manager_lib",
         ":testbed_dependent_test_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("hamcrest"),
         third_party("mock"),
@@ -1779,7 +1727,6 @@ py_test(
         ":request_sync_monitor_lib",
         ":testbed_dependent_test_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1810,7 +1757,6 @@ py_test(
     deps = [
         ":api_test_lib",
         ":datastore_test_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1853,7 +1799,6 @@ py_test(
         ":testbed_dependent_test_lib",
         third_party("mock"),
         third_party("werkzeug"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1875,7 +1820,6 @@ pytype_strict_library(
 )
 
         "//third_party/py/google/appengine/ext/ndb",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/protorpc:protorpc_all",
         third_party("mock"),
     ],
@@ -1902,7 +1846,6 @@ py_test(
         ":testbed_dependent_test_lib",
         "//third_party/py/google/appengine/ext/ndb",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("hamcrest"),
         third_party("mock"),
@@ -1926,7 +1869,6 @@ py_test(
         third_party("webtest"),
         "//third_party/py/google/appengine/api/taskqueue:taskqueue_py",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1945,7 +1887,6 @@ py_test(
         "//third_party/py/google/appengine/api/modules:modules_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -1962,7 +1903,6 @@ py_test(
         ":testbed_dependent_test_lib",
         "//third_party/py/google/appengine/ext/ndb",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -1979,7 +1919,6 @@ py_test(
         "//third_party/py/google/appengine/ext/ndb",
         third_party("mock"),
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2001,7 +1940,6 @@ py_test(
         third_party("webtest"),
         "//third_party/py/google/appengine/api/taskqueue:taskqueue_py",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2039,7 +1977,6 @@ py_test(
         third_party("cloudstorage"),
         third_party("six"),
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2058,7 +1995,6 @@ py_test(
         "//third_party/py/google/appengine/api/modules:modules_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -2077,7 +2013,6 @@ py_test(
         ":testbed_dependent_test_lib",
         "//third_party/py/google/appengine/ext/ndb",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -2097,7 +2032,6 @@ py_test(
         ":testbed_dependent_test_lib",
         "//third_party/py/google/appengine/ext/ndb",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/six",
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
@@ -2118,7 +2052,6 @@ py_test(
         third_party("webtest"),
         third_party("six"),
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2138,7 +2071,6 @@ py_test(
         third_party("webtest"),
         "//third_party/py/google/appengine/api:mail_py",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2156,7 +2088,6 @@ py_test(
         "//third_party/py/google/appengine/ext/ndb",
         third_party("hamcrest"),
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -2176,7 +2107,6 @@ py_test(
         third_party("mock"),
         third_party("webtest"),
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -2193,7 +2123,6 @@ py_test(
         "//third_party/py/google/appengine/api:mail_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2209,7 +2138,6 @@ py_test(
         "//third_party/py/google/appengine/api:mail_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2237,7 +2165,6 @@ py_test(
     deps = [
         ":metric_lib",
         "//third_party/py/google/appengine/api/taskqueue:taskqueue_py",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/protorpc:protorpc_all",
         third_party("mock"),
         third_party("webtest"),
@@ -2260,7 +2187,6 @@ py_test(
         "//third_party/py/google/appengine/api/taskqueue:taskqueue_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2281,7 +2207,6 @@ py_test(
         third_party("six"),
         third_party("webtest"),
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2298,7 +2223,6 @@ py_test(
         "//third_party/py/google/appengine/api/modules:modules_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2315,7 +2239,6 @@ py_test(
         "//third_party/py/google/appengine/api/modules:modules_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
 )
@@ -2355,7 +2278,6 @@ py_test(
         "//third_party/py/google/appengine/api/modules:modules_py",
         "//third_party/py/google/appengine/ext/deferred",
         "//third_party/py/google/appengine/ext/testbed",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -2373,7 +2295,6 @@ py_test(
         ":request_sync_monitor_lib",
         ":testbed_dependent_test_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 # END-INTERNAL

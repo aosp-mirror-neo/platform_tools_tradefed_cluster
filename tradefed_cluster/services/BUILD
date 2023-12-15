@@ -31,7 +31,6 @@ py_test(
         ":app_manager_lib",
         third_party("absl/testing:absltest"),
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -59,7 +58,6 @@ py_test(
         ":file_storage_lib",
         third_party("absl/testing:absltest"),
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster:env_config_lib",
         "//tradefed_cluster/plugins:base_lib",
     ],
@@ -92,7 +90,6 @@ py_test(
         ":acl_service_lib",
         third_party("absl/testing:absltest"),
         "//third_party/py/endpoints:endpoints_library",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/protorpc:protorpc_all",
         "//tradefed_cluster:api_common_lib",
         "//tradefed_cluster:datastore_test_util_lib",
@@ -125,7 +122,6 @@ py_test(
         ":mailer_lib",
         third_party("absl/testing:absltest"),
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -156,7 +152,6 @@ py_test(
     deps = [
         ":task_scheduler_lib",
         "//pyglib:stringutil",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster:env_config_lib",
         "//tradefed_cluster:testbed_dependent_test_lib",
         "//tradefed_cluster/util:ndb_shim_lib",

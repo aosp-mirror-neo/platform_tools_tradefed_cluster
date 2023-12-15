@@ -42,7 +42,6 @@ py_test(
     deps = [
         ":command_util",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -72,7 +71,6 @@ py_test(
     deps = [
         ":email_sender_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster:testbed_dependent_test_lib",
     ],
 )
@@ -117,7 +115,6 @@ py_test(
     deps = [
         ":ndb_shim_lib",
         ":ndb_util_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster:testbed_dependent_test_lib",
     ],
 )
@@ -145,7 +142,6 @@ py_test(
     tags = ["not_run:arm"],
     deps = [
         ":pubsub_client_lib",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//tradefed_cluster:testbed_dependent_test_lib",
         third_party("mock"),
     ],
@@ -172,7 +168,6 @@ py_test(
     deps = [
         ":elasticsearch_client_lib",
         "//third_party/py/elasticsearch",
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -235,6 +230,5 @@ py_test(
     deps = [
         ":datastore_emulator_lib",
         third_party("mock"),
-        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
