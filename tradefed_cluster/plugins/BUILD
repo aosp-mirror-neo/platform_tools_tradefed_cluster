@@ -39,6 +39,7 @@ py_test(
     srcs_version = "PY3",
     deps = [
         ":base_lib",
+        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -65,6 +66,7 @@ py_test(
     deps = [
         ":google_cloud_lib",
         third_party("mock"),
+        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
@@ -109,6 +111,7 @@ py_test(
     deps = [
         ":registry_lib",
         third_party("mock"),
+        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
     ],
 )
 
