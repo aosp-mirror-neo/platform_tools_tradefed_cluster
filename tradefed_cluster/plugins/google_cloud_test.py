@@ -61,8 +61,8 @@ class TaskSchedulerTest(unittest.TestCase):
     self.mock_client.task_path.assert_called_once_with(
         'project', 'location', 'queue_name', 'task_name')
     self.mock_client.create_task.assert_called_once_with(
-        'queue_path',
-        {
+        parent='queue_path',
+        task={
             'name': 'task_path',
             'schedule_time': timestamp,
             'app_engine_http_request': {
@@ -96,8 +96,8 @@ class TaskSchedulerTest(unittest.TestCase):
     self.mock_client.queue_path.assert_called_once_with(
         'project', 'location', 'queue_name')
     self.mock_client.create_task.assert_called_once_with(
-        'queue_path',
-        {
+        parent='queue_path',
+        task={
             'app_engine_http_request': {
                 'http_method': 'POST',
                 'app_engine_routing': {},

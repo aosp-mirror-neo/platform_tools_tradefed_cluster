@@ -75,7 +75,7 @@ class TaskScheduler(base.TaskScheduler):
       task['schedule_time'] = timestamp
     if target:
       task['app_engine_http_request']['app_engine_routing']['service'] = target
-    task = self._GetClient().create_task(parent, task,
+    task = self._GetClient().create_task(parent=parent, task=task,
                                          retry=DEFAULT_RETRY_OPTION)
     return base.Task(name=task.name.split('/')[-1], payload=payload, eta=eta)
 
