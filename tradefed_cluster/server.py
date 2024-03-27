@@ -22,6 +22,7 @@ from tradefed_cluster import command_monitor
 from tradefed_cluster import commander
 from tradefed_cluster import config_syncer_gcs_to_ndb
 from tradefed_cluster import device_history_cleaner
+from tradefed_cluster import device_info_cleaner
 from tradefed_cluster import device_info_reporter
 from tradefed_cluster import device_monitor
 from tradefed_cluster import harness_image_metadata_syncer
@@ -66,8 +67,10 @@ APP = RegexDispatcher([
 
 TFC = RegexDispatcher([
     # Task handlers
-    (r'/_ah/queue/(default|host-event-queue-ndb|notification-work-queue)',
-     task_scheduler.APP),
+    (
+        r'/_ah/queue/(default|host-event-queue-ndb|notification-work-queue)',
+        task_scheduler.APP,
+    ),
     (r'/_ah/queue/command-attempt-sync-queue', command_attempt_monitor.APP),
     (r'/_ah/queue/command-event-queue', command_event_handler.APP),
     (r'/_ah/queue/command-sync-queue', command_monitor.APP),
@@ -80,9 +83,12 @@ TFC = RegexDispatcher([
     (r'/cron/monitor/lab_resource', lab_resource_monitor.APP),
     (r'/cron/report/devices', device_info_reporter.APP),
     (r'/cron/cleanup/device_history', device_history_cleaner.APP),
+    (r'/cron/cleanup/device_info', device_info_cleaner.APP),
     (r'/cron/notifier_update_request_status', notification_handler.APP),
     (r'/cron/syncer/sync_gcs_ndb', config_syncer_gcs_to_ndb.APP),
-    (r'/cron/syncer/sync_harness_image_metadata',
-     harness_image_metadata_syncer.APP),
+    (
+        r'/cron/syncer/sync_harness_image_metadata',
+        harness_image_metadata_syncer.APP,
+    ),
     (r'/cron/scheduler/harness_update', harness_update_scheduler.APP),
 ])

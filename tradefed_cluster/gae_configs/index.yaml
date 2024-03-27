@@ -83,6 +83,13 @@ indexes:
 
 - kind: DeviceInfo
   properties:
+  - name: hidden
+  - name: state
+  - name: timestamp
+    direction: desc
+
+- kind: DeviceInfo
+  properties:
   - name: device_serial
   - name: timestamp
     direction: desc

@@ -1,5 +1,5 @@
-load("//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
 load("//tradefed_cluster:adapter.bzl", "pytype_strict_binary", "third_party_py3")
+load("//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
 
 package(
     default_applicable_licenses = ["//tradefed_cluster:license"],

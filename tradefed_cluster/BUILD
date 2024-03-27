@@ -1,9 +1,9 @@
 # A test infra software for Android testing labs.
 
 load("//third_party/bazel_rules/rules_python/python:py_test.bzl", "py_test")
+load("//tradefed_cluster:adapter.bzl", "py_library", "pytype_strict_library", "third_party")
 load("//tools/build_defs/license:license.bzl", "license")
 load("//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
-load("//tradefed_cluster:adapter.bzl", "py_library", "pytype_strict_library", "third_party")
 
 package(
     default_applicable_licenses = ["//tradefed_cluster:license"],
@@ -1053,6 +1053,40 @@ pytype_strict_library(
 )
 
 pytype_strict_library(
+    name = "device_info_cleaner_lib",
+    srcs = [
+        "device_info_cleaner.py",
+    ],
+    deps = [
+        ":common_lib",
+        ":datastore_entities_lib",
+        ":device_manager_lib",
+        "//tradefed_cluster/util:ndb_shim_lib",
+        third_party("flask"),
+    ],
+)
+
+py_test(
+    name = "device_info_cleaner_test",
+    srcs = [
+        "device_info_cleaner_test.py",
+    ],
+    python_version = "PY3",
+    srcs_version = "PY3",
+    tags = ["not_run:arm"],
+    deps = [
+        ":datastore_entities_lib",
+        ":device_info_cleaner_lib",
+        ":device_manager_lib",
+        ":testbed_dependent_test_lib",
+        third_party("mock"),
+        third_party("webtest"),
+        "//testing/pybase",
+        "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
+    ],
+)
+
+pytype_strict_library(
     name = "device_history_cleaner_lib",
     srcs = [
         "device_history_cleaner.py",
@@ -1827,6 +1861,7 @@ pytype_strict_library(
         ":commander_lib",
         ":config_syncer_gcs_to_ndb_lib",
         ":device_history_cleaner_lib",
+        ":device_info_cleaner_lib",
         ":device_info_reporter_lib",
         ":device_monitor_lib",
         ":harness_image_metadata_syncer_lib",
