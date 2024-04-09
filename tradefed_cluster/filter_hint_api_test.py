@@ -14,12 +14,14 @@
 """Tests for Dimension API."""
 
 import datetime
+import mock
 
 from protorpc import protojson
 from tradefed_cluster import api_messages
 from tradefed_cluster import api_test
 from tradefed_cluster import common
 from tradefed_cluster import datastore_test_util
+from tradefed_cluster import filter_hint_api
 
 import unittest
 
@@ -136,6 +138,28 @@ class FilterHintApiTest(api_test.ApiTest):
         api_messages.FilterHintCollection, api_response.body)
     self.assertEqual('200 OK', api_response.status)
     self.assertEqual(2, len(host_collection.filter_hints))
+    hosts = list(host_collection.filter_hints)
+    self.assertEqual(hosts[0].value, host_list[0].hostname)
+    self.assertEqual(hosts[1].value, host_list[1].hostname)
+
+  @mock.patch.object(filter_hint_api, '_MAX_HINTS', 2)
+  def testListHostnames_limit(self):
+    """Tests ListHosts returns all visible hostnames."""
+    host_list = [
+        datastore_test_util.CreateHost(cluster='paid', hostname='host_0'),
+        datastore_test_util.CreateHost(cluster='paid', hostname='host_1'),
+        datastore_test_util.CreateHost(cluster='free', hostname='host_2'),
+        datastore_test_util.CreateHost(cluster='free', hostname='host_3'),
+    ]
+    api_request = {'type': 'HOST'}
+    api_response = self.testapp.post_json(
+        '/_ah/api/FilterHintApi.ListFilterHints', api_request
+    )
+    host_collection = protojson.decode_message(
+        api_messages.FilterHintCollection, api_response.body
+    )
+    self.assertEqual('200 OK', api_response.status)
+    self.assertLen(host_collection.filter_hints, 2)
     hosts = list(host_collection.filter_hints)
     self.assertEqual(hosts[0].value, host_list[0].hostname)
     self.assertEqual(hosts[1].value, host_list[1].hostname)

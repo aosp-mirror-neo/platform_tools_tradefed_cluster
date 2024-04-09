@@ -24,6 +24,8 @@ from tradefed_cluster import common
 from tradefed_cluster import datastore_entities
 from tradefed_cluster import device_manager
 
+_MAX_HINTS = 1000
+
 
 @api_common.tradefed_cluster_api.api_class(
     resource_name="filterHints", path="filterHints")
@@ -109,8 +111,11 @@ class FilterHintApi(remote.Service):
 
   def _ListHosts(self):
     """Fetches a list of hostnames."""
-    entities = datastore_entities.HostInfo.query().filter(
-        datastore_entities.HostInfo.hidden == False).fetch(keys_only=True)  
+    entities = (
+        datastore_entities.HostInfo.query()
+        .filter(datastore_entities.HostInfo.hidden == False)  
+        .fetch(keys_only=True, limit=_MAX_HINTS)
+    )
     infos = [
         api_messages.FilterHintMessage(value=str(item.id()))
         for item in entities

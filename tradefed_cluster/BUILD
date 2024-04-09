@@ -1291,9 +1291,14 @@ py_test(
     srcs_version = "PY3",
     tags = ["not_run:arm"],
     deps = [
+        ":api_messages_lib",
         ":api_test_lib",
+        ":common_lib",
         ":datastore_test_util_lib",
+        ":filter_hint_api_lib",
         "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
+        third_party("mock"),
+        third_party("protorpc:protorpc_all"),
     ],
 )
 
