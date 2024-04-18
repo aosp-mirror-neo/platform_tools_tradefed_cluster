@@ -66,7 +66,7 @@ cron:
 
 - description: hide gone devices
   url: /cron/cleanup/device_info
-  schedule: every 3 hours
+  schedule: every 10 minutes
   target: tfc
 
 - description: sync cluster and host configs from GCS to NDB

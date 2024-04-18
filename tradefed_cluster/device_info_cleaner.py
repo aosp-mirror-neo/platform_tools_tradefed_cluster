@@ -95,7 +95,7 @@ def HideDeviceInfos(retention_days):
         hidden += 1
         if common.Now() > request_end_time:
           logging.info("End the request after %r minutes.", TIMEOUT_MINUTES)
-          break
+          return hidden
       except ndb.exceptions.Error:
         logging.exception("Datastore error while hiding a device.")
   return hidden

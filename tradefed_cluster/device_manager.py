@@ -928,6 +928,7 @@ def _DoHideDevice(device_serial, hostname):
   device.hidden = True
   device.timestamp = common.Now()
   device.put()
+  logging.info("Hide device %s %s.", device_serial, hostname)
   return device
 
 
