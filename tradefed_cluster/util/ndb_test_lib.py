@@ -65,6 +65,7 @@ class NdbTest(unittest.TestCase):
   def setUp(self):
     super(NdbTest, self).setUp()
     self.context_manager = NdbContextManager()
+    assert datastore is not None
     datastore.Clear()
 
 
