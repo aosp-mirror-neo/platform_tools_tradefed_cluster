@@ -506,6 +506,10 @@ class RequestMessage(messages.Message):
   run_count = messages.IntegerField(23)
   shard_count = messages.IntegerField(24)
 
+  # Retry information that belongs to the same test run.
+  next_attempt_session_id = messages.StringField(26)
+  previous_attempt_session_ids = messages.StringField(27, repeated=True)
+
 
 class RequestMessageCollection(messages.Message):
   """A class representing a collection of test requests."""
