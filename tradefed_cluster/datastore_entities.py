@@ -733,6 +733,7 @@ class TestEnvironment(ndb.Model):
   tradefed_config_objects = ndb.LocalStructuredProperty(
       TradefedConfigObject, repeated=True)
   use_parallel_setup = ndb.BooleanProperty()
+  build_attributes = ndb.JsonProperty()
 
   @classmethod
   def FromMessage(cls, msg):
@@ -754,7 +755,8 @@ class TestEnvironment(ndb.Model):
             TradefedConfigObject.FromMessage(o)
             for o in msg.tradefed_config_objects
         ],
-        use_parallel_setup=msg.use_parallel_setup)
+        use_parallel_setup=msg.use_parallel_setup,
+        build_attributes={p.key: p.value for p in msg.build_attributes})
 
 
 @MessageConverter(TestEnvironment)
@@ -769,6 +771,8 @@ def TestEnvironmentToMessage(entity):
   env_vars = api_messages.MapToKeyValuePairMessages(entity.env_vars)
   java_properties = api_messages.MapToKeyValuePairMessages(
       entity.java_properties)
+  build_attributes = api_messages.MapToKeyValuePairMessages(
+      entity.build_attributes)
   return api_messages.TestEnvironment(
       env_vars=env_vars,
       setup_scripts=entity.setup_scripts,
@@ -786,7 +790,8 @@ def TestEnvironmentToMessage(entity):
       tradefed_config_objects=[
           ToMessage(t) for t in entity.tradefed_config_objects
       ],
-      use_parallel_setup=entity.use_parallel_setup)
+      use_parallel_setup=entity.use_parallel_setup,
+      build_attributes=build_attributes)
 
 
 class Command(ndb.Model):

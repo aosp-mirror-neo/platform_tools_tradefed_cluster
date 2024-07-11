@@ -173,6 +173,8 @@ class TestEnvironment(messages.Message):
     tradefed_config_objects:
         a list of TradefedConfigObject to add to a launcher config.
     use_parallel_setup: whether to setup devices in parallel.
+    build_attributes: a dict of build attributes referenced by TF result
+        reporters.
   """
   env_vars = messages.MessageField(KeyValuePair, 1, repeated=True)
   setup_scripts = messages.StringField(2, repeated=True)
@@ -190,6 +192,7 @@ class TestEnvironment(messages.Message):
   tradefed_config_objects = messages.MessageField(
       TradefedConfigObject, 14, repeated=True)
   use_parallel_setup = messages.BooleanField(15)
+  build_attributes = messages.MessageField(KeyValuePair, 16, repeated=True)
 
 
 class TestResourceParameters(messages.Message):
