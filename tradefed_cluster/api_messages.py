@@ -307,6 +307,7 @@ class CommandAttemptMessage(messages.Message):
   device_lost_detected = messages.IntegerField(23)
   run_index = messages.IntegerField(24)
   attempt_index = messages.IntegerField(25)
+  log_dir_path = messages.StringField(26)
 
 
 class CommandAttemptMessageCollection(messages.Message):
