@@ -377,6 +377,8 @@ class CommandInfo(messages.Message):
     shard_count: a shard count.
     allow_partial_device_match: a boolean field indicating whether partial
         device match is supported or not.
+    sharding_mode: the sharding mode string to use for the test. See
+        ndb_models.ShardingMode.
   """
   name = messages.StringField(1)
   command_line = NonEmptyStringField(2)
@@ -387,6 +389,7 @@ class CommandInfo(messages.Message):
   allow_partial_device_match = messages.BooleanField(7, default=False)
   test_bench = messages.MessageField(TestBenchRequirement, 8)
   test_bench_attributes = messages.StringField(9, repeated=True)
+  sharding_mode = messages.StringField(10)
 
 
 class CommandMessage(messages.Message):
