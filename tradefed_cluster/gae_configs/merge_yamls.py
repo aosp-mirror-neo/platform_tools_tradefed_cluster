@@ -36,7 +36,7 @@ def _MergeDicts(a, b):
     a merged dict object.
   """
   for key, value in six.iteritems(b):
-    if key not in a:
+    if not a.get(key):
       a[key] = value
       continue
     value_a = a[key]
