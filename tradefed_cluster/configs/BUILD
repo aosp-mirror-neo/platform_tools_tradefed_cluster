@@ -57,7 +57,6 @@ py_proto_library(
     srcs = [
         "lab_config.proto",
     ],
-    api_version = 2,
     deps = [
         ":lab_config_proto",
     ],
