@@ -48,7 +48,7 @@ ZANZIBAR_SERVER_PROD = 'blade:acl-zanzibar-prod'
 class EnvConfig(object):
   """Environments configurations."""
 
-  def __init__(self, app_id=APP_ID, env=ENV, **kwargs):
+  def __init__(self, app_id: str = APP_ID, env: str = ENV, **kwargs):
     self.app_id = app_id
     self.env = env
 
@@ -95,4 +95,4 @@ ENV_TO_CONFIG = {
     ),
 }
 
-CONFIG = ENV_TO_CONFIG.get(ENV)
+CONFIG = ENV_TO_CONFIG.get(ENV, ENV_TO_CONFIG[ENV_PROD])
