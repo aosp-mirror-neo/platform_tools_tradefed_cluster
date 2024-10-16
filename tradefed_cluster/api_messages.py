@@ -478,6 +478,9 @@ class RequestMessage(messages.Message):
     run_target: a run target (Deprecated).
     run_count: a run count (Deprecated).
     shard_count: a shard count (Deprecated).
+    error_reason: a string error reason.
+    error_message: a string error message if the request is in ERROR state or
+        CANCELED state.
   """
   id = messages.StringField(1)
   type = messages.EnumField(RequestType, 2)
@@ -516,6 +519,9 @@ class RequestMessage(messages.Message):
   # Retry information that belongs to the same test run.
   next_attempt_session_id = messages.StringField(26)
   previous_attempt_session_ids = messages.StringField(27, repeated=True)
+
+  error_reason = messages.StringField(28)
+  error_message = messages.StringField(29)
 
 
 class RequestMessageCollection(messages.Message):
