@@ -258,7 +258,6 @@ class CancelReason(messages.Enum):
   INVALID_REQUEST = 6
 
 #     //depot/google3/third_party/py/tradefed_cluster/api_messages.py,
-#     //depot/google3/wireless/android/test_tools/tradefed_cluster/plugins/ants_errors.py
 # )
 
 
