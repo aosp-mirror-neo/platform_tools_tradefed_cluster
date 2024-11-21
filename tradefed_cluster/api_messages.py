@@ -308,6 +308,8 @@ class CommandAttemptMessage(messages.Message):
   run_index = messages.IntegerField(24)
   attempt_index = messages.IntegerField(25)
   log_dir_path = messages.StringField(26)
+  mobly_test_id = messages.StringField(27, repeated=True)
+  tf_log_path = messages.StringField(28)
 
 
 class CommandAttemptMessageCollection(messages.Message):
