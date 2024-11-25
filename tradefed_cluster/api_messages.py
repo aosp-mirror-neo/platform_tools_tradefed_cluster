@@ -381,6 +381,8 @@ class CommandInfo(messages.Message):
         device match is supported or not.
     sharding_mode: the sharding mode string to use for the test. See
         ndb_models.ShardingMode.
+    enable_xts_dynamic_download: a boolean field indicating whether xTS
+        dynamic download is enabled or not.
   """
   name = messages.StringField(1)
   command_line = NonEmptyStringField(2)
@@ -392,6 +394,7 @@ class CommandInfo(messages.Message):
   test_bench = messages.MessageField(TestBenchRequirement, 8)
   test_bench_attributes = messages.StringField(9, repeated=True)
   sharding_mode = messages.StringField(10)
+  enable_xts_dynamic_download = messages.BooleanField(11, default=False)
 
 
 class CommandMessage(messages.Message):
