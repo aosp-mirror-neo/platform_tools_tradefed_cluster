@@ -13,7 +13,6 @@ pytype_strict_library(
     srcs = [
         "app_manager.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//tradefed_cluster:env_config_lib",
         third_party("protorpc:protorpc_all"),
@@ -25,8 +24,6 @@ py_test(
     srcs = [
         "app_manager_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":app_manager_lib",
         third_party("absl/testing:absltest"),
@@ -40,7 +37,6 @@ pytype_strict_library(
     srcs = [
         "file_storage.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//tradefed_cluster:env_config_lib",
         "//tradefed_cluster/plugins:base_lib",
@@ -53,8 +49,6 @@ py_test(
     srcs = [
         "file_storage_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":file_storage_lib",
         third_party("absl/testing:absltest"),
@@ -70,7 +64,6 @@ pytype_strict_library(
     srcs = [
         "acl_service.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//third_party/py/endpoints:api_request",
         "//third_party/py/endpoints:endpoints_dispatcher",
@@ -85,8 +78,6 @@ py_test(
     srcs = [
         "acl_service_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY2AND3",
     tags = ["not_run:arm"],
     deps = [
         ":acl_service_lib",
@@ -107,7 +98,6 @@ pytype_strict_library(
     srcs = [
         "mailer.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//tradefed_cluster:env_config_lib",
         third_party("protorpc:protorpc_all"),
@@ -119,8 +109,6 @@ py_test(
     srcs = [
         "mailer_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":mailer_lib",
         third_party("absl/testing:absltest"),
@@ -134,7 +122,6 @@ pytype_strict_library(
     srcs = [
         "task_scheduler.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//pyglib:stringutil",
         "//tradefed_cluster:common_lib",
@@ -150,8 +137,6 @@ py_test(
     srcs = [
         "task_scheduler_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     tags = ["not_run:arm"],
     deps = [
         ":task_scheduler_lib",

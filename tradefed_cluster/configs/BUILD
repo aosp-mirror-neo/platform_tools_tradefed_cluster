@@ -22,7 +22,6 @@ py_library(
     srcs = [
         "lab_config.py",
     ],
-    srcs_version = "PY2AND3",
     visibility = ["//visibility:public"],
     deps = [
         ":lab_config_py_pb2",
@@ -37,7 +36,6 @@ py_library(
     srcs = [
         "unified_lab_config.py",
     ],
-    srcs_version = "PY2AND3",
     visibility = ["//visibility:public"],
     deps = [
         third_party("ansible"),
@@ -68,8 +66,6 @@ py_test(
     data = [
         ":testdata",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":lab_config_lib",
         third_party("six"),
@@ -84,8 +80,6 @@ py_test(
     data = [
         ":testdata",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":unified_lab_config_lib",
     ],

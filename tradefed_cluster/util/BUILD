@@ -13,7 +13,6 @@ pytype_strict_library(
     srcs = [
         "auth.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         third_party("google/auth:compute_engine/__init__"),
         third_party("google/auth:transport/requests"),
@@ -25,7 +24,6 @@ pytype_strict_library(
     srcs = [
         "command_util.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         third_party("munch"),
         third_party("six"),
@@ -37,8 +35,6 @@ py_test(
     srcs = [
         "command_util_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":command_util",
         third_party("mock"),
@@ -51,7 +47,6 @@ pytype_strict_library(
     srcs = [
         "email_sender.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//tradefed_cluster/services:mailer_lib",
         third_party("jinja2"),
@@ -66,8 +61,6 @@ py_test(
     data = [
         ":testdata",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     tags = ["not_run:arm"],
     deps = [
         ":email_sender_lib",
@@ -90,7 +83,6 @@ pytype_strict_library(
     srcs = [
         "metric_util.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//tradefed_cluster/plugins:metric_client_lib",
     ],
@@ -111,8 +103,6 @@ py_test(
     srcs = [
         "ndb_util_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     tags = ["not_run:arm"],
     deps = [
         ":ndb_shim_lib",
@@ -127,7 +117,6 @@ pytype_strict_library(
     srcs = [
         "pubsub_client.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         "//pyglib:retry",
         "//third_party/py/google/auth:__init__",
@@ -140,8 +129,6 @@ py_test(
     srcs = [
         "pubsub_client_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     tags = ["not_run:arm"],
     deps = [
         ":pubsub_client_lib",
@@ -156,7 +143,6 @@ pytype_strict_library(
     srcs = [
         "elasticsearch_client.py",
     ],
-    srcs_version = "PY3",
     deps = [
         "//third_party/py/elasticsearch",
     ],
@@ -167,8 +153,6 @@ py_test(
     srcs = [
         "elasticsearch_client_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":elasticsearch_client_lib",
         "//third_party/py/elasticsearch",
@@ -188,7 +172,6 @@ pytype_strict_library(
     srcs = [
         "ndb_shim.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         third_party("google/auth:__init__"),
         third_party("google/auth:compute_engine/__init__"),
@@ -203,7 +186,6 @@ pytype_strict_library(
     srcs = [
         "ndb_test_lib.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         ":datastore_emulator_lib",
         ":ndb_shim_lib",
@@ -229,8 +211,6 @@ py_test(
     srcs = [
         "datastore_emulator_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     tags = ["not_run:arm"],
     deps = [
         ":datastore_emulator_lib",

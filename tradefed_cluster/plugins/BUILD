@@ -13,7 +13,6 @@ py_library(
     srcs = [
         "appengine.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         ":base_lib",
     ],
@@ -24,7 +23,6 @@ pytype_strict_library(
     srcs = [
         "base.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         third_party("six"),
     ],
@@ -35,8 +33,6 @@ py_test(
     srcs = [
         "base_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":base_lib",
         "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
@@ -48,7 +44,6 @@ py_library(
     srcs = [
         "google_cloud.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         ":base_lib",
         third_party("google-cloud-tasks"),
@@ -61,8 +56,6 @@ py_test(
     srcs = [
         "google_cloud_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":google_cloud_lib",
         third_party("mock"),
@@ -75,7 +68,6 @@ py_library(
     srcs = [
         "metric_client.py",
     ],
-    srcs_version = "PY2AND3",
 )
 
 pytype_strict_library(
@@ -83,7 +75,6 @@ pytype_strict_library(
     srcs = [
         "noop_plugin.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         ":base_lib",
     ],
@@ -94,7 +85,6 @@ pytype_strict_library(
     srcs = [
         "registry.py",
     ],
-    srcs_version = "PY2AND3",
     deps = [
         ":base_lib",
         ":noop_plugin_lib",
@@ -106,8 +96,6 @@ py_test(
     srcs = [
         "registry_test.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY3",
     deps = [
         ":registry_lib",
         third_party("mock"),

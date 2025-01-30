@@ -37,8 +37,6 @@ pytype_strict_binary(
     srcs = [
         "merge_yamls.py",
     ],
-    python_version = "PY3",
-    srcs_version = "PY2AND3",
     deps = [
         third_party_py3("absl:app"),
         third_party_py3("six"),
