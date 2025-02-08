@@ -193,6 +193,7 @@ class TestEnvironment(messages.Message):
       TradefedConfigObject, 14, repeated=True)
   use_parallel_setup = messages.BooleanField(15)
   build_attributes = messages.MessageField(KeyValuePair, 16, repeated=True)
+  tradefed_options = messages.MessageField(KeyMultiValuePair, 17, repeated=True)
 
 
 class TestResourceParameters(messages.Message):
