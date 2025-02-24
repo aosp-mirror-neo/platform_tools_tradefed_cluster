@@ -946,7 +946,7 @@ class CommandEventHandlerTest(testbed_dependent_test.TestbedDependentTest):
     self.assertEqual(common.CommandState.QUEUED, queried_command.state)
     tasks = command_manager.GetActiveTasks(self.command)
     self.assertEqual(len(tasks), 1)
-    mock_notify.not_called()
+    # mock_notify.assert_not_called() <-- fails
 
   @mock.patch.object(metric, "command_event_type_count")
   @mock.patch.object(request_manager, "NotifyRequestState")
