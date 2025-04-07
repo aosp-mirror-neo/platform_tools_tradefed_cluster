@@ -13,15 +13,17 @@
 # limitations under the License.
 
 """A module for common constants and functions."""
+
 import base64
 import datetime
 import logging
 import os
+import zoneinfo
 
 from protorpc import messages
-import pytz
 import retry
 import six
+
 
 # List APIs defaults
 DEFAULT_PAGE_OFFSET = 0
@@ -36,7 +38,7 @@ BATCH_SIZE = 100
 LEASE_SECS = 300
 
 # Default timezone
-DEFAULT_TZ = pytz.timezone("US/Pacific")
+DEFAULT_TZ = zoneinfo.ZoneInfo("US/Pacific")
 
 # Default date format
 DATE_FORMAT = "%Y-%m-%d %H:%M"
