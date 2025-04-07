@@ -17,6 +17,7 @@ import datetime
 
 import mock
 from protorpc import protojson
+import pytz
 
 from tradefed_cluster.util import ndb_shim as ndb
 
@@ -654,9 +655,7 @@ class ClusterDeviceApiTest(api_test.ApiTest):
   def testNewNote_withTimezoneOffset(self):
     """Tests adding a note to a device with a timestamp with offset."""
     user = 'some_user'
-    timestamp = datetime.datetime(2015, 10, 18, 20).replace(
-        tzinfo=datetime.timezone.utc
-    )
+    timestamp = pytz.utc.localize(datetime.datetime(2015, 10, 18, 20))
     message = 'The Message'
     api_request = {
         'device_serial': self.ndb_device_1.device_serial,

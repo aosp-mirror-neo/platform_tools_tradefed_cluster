@@ -18,6 +18,8 @@ import datetime
 import enum
 import logging
 
+import pytz
+
 from tradefed_cluster import env_config
 from tradefed_cluster.util import metric_util
 
@@ -191,7 +193,7 @@ def RecordCommandTimingMetric(cluster_id,
     if (create_timestamp.tzinfo is not None and
         create_timestamp.tzinfo.utcoffset(create_timestamp) is not None):
       # create_timestamp is an aware datetime. Making it naive.
-      create_timestamp = create_timestamp.astimezone(datetime.timezone.utc)
+      create_timestamp = create_timestamp.astimezone(pytz.utc)
       create_timestamp = create_timestamp.replace(tzinfo=None)
     latency_secs = (
         datetime.datetime.utcnow() - create_timestamp).total_seconds()

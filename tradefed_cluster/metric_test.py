@@ -17,14 +17,13 @@
 import datetime
 
 import mock
+import pytz
 from tradefed_cluster import metric
 
 import unittest
 
 TIMESTAMP_NAIVE = datetime.datetime(2017, 10, 11)
-TIMESTAMP_AWARE = datetime.datetime(2017, 10, 10, 21).replace(
-    tzinfo=datetime.timezone.utc
-)
+TIMESTAMP_AWARE = pytz.utc.localize(datetime.datetime(2017, 10, 10, 21))
 UTC_NOW = datetime.datetime(2017, 10, 11, 1)
 
 
@@ -51,7 +50,6 @@ class MetricTest(unittest.TestCase):
   @mock.patch.object(metric.command_timing, 'Record', autospec=True)
   def testRecordCommandTimingMetric_awareDatetime(self, record, mock_datetime):
     mock_datetime.datetime.utcnow.return_value = UTC_NOW
-    mock_datetime.timezone.utc = datetime.timezone.utc
     metric.RecordCommandTimingMetric(
         cluster_id='cluster',
         run_target='target',
