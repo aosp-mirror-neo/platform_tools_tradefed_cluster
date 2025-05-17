@@ -204,7 +204,6 @@ pytype_strict_library(
     deps = [
         ":env_config_lib",
         ":server_lib",
-        third_party("pytz"),
         "//tradefed_cluster/plugins:registry_lib",
         "//tradefed_cluster/util:env_util_lib",
     ],
@@ -223,7 +222,6 @@ pytype_strict_library(
         ":device_manager_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -258,7 +256,6 @@ pytype_strict_library(
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -280,7 +277,6 @@ py_test(
         ":note_manager_lib",
         "//third_party/py/google/protobuf:use_fast_cpp_protos",  # Automatically added go/proto_python_upb_flip
         "//third_party/py/protorpc:protorpc_all",
-        "//third_party/py/pytz",
         "//tradefed_cluster/util:elasticsearch_client_lib",
         "//tradefed_cluster/util:ndb_shim_lib",
     ],
@@ -305,7 +301,6 @@ pytype_strict_library(
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -368,7 +363,6 @@ pytype_strict_library(
         ":datastore_entities_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -463,7 +457,6 @@ pytype_strict_library(
         ":command_event_handler_lib",
         ":common_lib",
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -795,7 +788,6 @@ pytype_strict_library(
     visibility = ["//visibility:public"],
     deps = [
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
         third_party("retry"),
         third_party("six"),
     ],
@@ -905,7 +897,6 @@ pytype_strict_library(
         ":datastore_entities_lib",
         ":request_sync_monitor_lib",
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -1216,7 +1207,6 @@ pytype_strict_library(
         ":device_manager_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -1326,7 +1316,6 @@ pytype_strict_library(
         "//tradefed_cluster/services:task_scheduler_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
         third_party("six"),
     ],
 )
@@ -1438,7 +1427,6 @@ pytype_strict_library(
     deps = [
         ":env_config_lib",
         "//tradefed_cluster/util:metric_util_lib",
-        third_party("pytz"),
     ],
 )
 
@@ -1569,7 +1557,6 @@ pytype_strict_library(
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -1632,7 +1619,6 @@ pytype_strict_library(
         "//tradefed_cluster/util:ndb_shim_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 
@@ -1736,7 +1722,6 @@ pytype_strict_library(
         ":device_manager_lib",
         third_party("endpoints:endpoints_library"),
         third_party("protorpc:protorpc_all"),
-        third_party("pytz"),
     ],
 )
 

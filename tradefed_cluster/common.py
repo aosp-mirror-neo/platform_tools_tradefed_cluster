@@ -19,7 +19,6 @@ import logging
 import os
 
 from protorpc import messages
-import pytz
 import retry
 import six
 
@@ -34,9 +33,6 @@ POLL_INTERVAL = 10
 BATCH_SIZE = 100
 # The lease time for requests in seconds.
 LEASE_SECS = 300
-
-# Default timezone
-DEFAULT_TZ = pytz.timezone("US/Pacific")
 
 # Default date format
 DATE_FORMAT = "%Y-%m-%d %H:%M"

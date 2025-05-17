@@ -262,12 +262,12 @@ def _Now():
 
 
 def _LocalizedNow():
-  """Returns the current time in the default timezone."""
-  return datetime.datetime.now(common.DEFAULT_TZ)
+  """Returns the current time in the local timezone."""
+  return datetime.datetime.now()
 
 
 def _GetCurrentDate():
-  """Return current date in the default timezone with no time component."""
+  """Return current date in the local timezone with no time component."""
   return _LocalizedNow().date()
 
 
