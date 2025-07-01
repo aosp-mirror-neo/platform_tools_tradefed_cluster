@@ -51,6 +51,7 @@ class EnvConfig(object):
   def __init__(self, app_id: str = APP_ID, env: str = ENV, **kwargs):
     self.app_id = app_id
     self.env = env
+    self.env_suffix = ''
 
     # update values
     self.__dict__.update(kwargs)
