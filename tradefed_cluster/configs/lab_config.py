@@ -176,6 +176,11 @@ class HostConfig(object):
     return self.lab_config_pb.operation_mode
 
   @property
+  def force_ats_version(self):
+    """Get the ATS version to use."""
+    return self.lab_config_pb.force_ats_version
+
+  @property
   def docker_image(self):
     """Get the docker image the host to use."""
     return (self.host_config_pb.docker_image or
@@ -370,6 +375,7 @@ def CreateHostConfig(
     operation_mode=None,
     max_local_virtual_devices=None,
     max_concurrent_update_percentage=None,
+    force_ats_version=None,
 ):
   """Create a host config from raw data.
 
@@ -400,6 +406,7 @@ def CreateHostConfig(
     max_local_virtual_devices: int, maximum number of virtual devices
     max_concurrent_update_percentage: int, maximum percentage of cluster level
       hosts being updated concurrently.
+    force_ats_version: int, ATS version to use, 1 or 2 (OmniLab-based).
   Returns:
     a HostConfig have all those data.
   """
@@ -434,7 +441,8 @@ def CreateHostConfig(
       service_account=service_account,
       engprod_api_key=engprod_api_key,
       ssh_arg=ssh_arg,
-      operation_mode=operation_mode)
+      operation_mode=operation_mode,
+      force_ats_version=force_ats_version)
   return HostConfig(host_config_pb, cluster_config_pb, lab_config_pb)
 
 

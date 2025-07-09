@@ -35,7 +35,6 @@ class ConfigTest(unittest.TestCase):
   def testParse(self):
     """Test parse a normal config."""
     config_path = GetTestFilePath('valid/config.yaml')
-    lab_config_pb = None
     with open(config_path, 'r') as f:
       lab_config_pb = lab_config.Parse(f)
 
@@ -50,6 +49,7 @@ class ConfigTest(unittest.TestCase):
     self.assertTrue(lab_config_pb.enable_autoupdate)
     self.assertTrue(lab_config_pb.enable_ui_update)
     self.assertEqual(lab_config_pb2.ON_PREMISE, lab_config_pb.operation_mode)
+    self.assertEqual(2, lab_config_pb.force_ats_version)
     self.assertEqual('path/to/key.json',
                      lab_config_pb.service_account_json_key_path)
     self.assertEqual('lab_sv_key',
@@ -204,6 +204,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual(lab_config_pb2.OperationMode.ON_PREMISE,
                      host_config.operation_mode)
     self.assertEqual(12, host_config.max_concurrent_update_percentage)
+    self.assertEqual(0, host_config.force_ats_version)
 
   def testCreateHostConfig_noLabName(self):
     host_config = lab_config.CreateHostConfig(
