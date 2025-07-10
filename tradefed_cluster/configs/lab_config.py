@@ -316,6 +316,10 @@ class HostConfig(object):
     """Max concurrent update percentage in cluster level."""
     return self.cluster_config_pb.max_concurrent_update_percentage
 
+  @property
+  def use_host_network(self):
+    return self.cluster_config_pb.use_host_network
+
   def Save(self, output_file_path):
     """Save the config to a file."""
     lab_config_pb = lab_config_pb2.LabConfig()
@@ -376,6 +380,7 @@ def CreateHostConfig(
     max_local_virtual_devices=None,
     max_concurrent_update_percentage=None,
     force_ats_version=None,
+    use_host_network=False,
 ):
   """Create a host config from raw data.
 
@@ -407,6 +412,7 @@ def CreateHostConfig(
     max_concurrent_update_percentage: int, maximum percentage of cluster level
       hosts being updated concurrently.
     force_ats_version: int, ATS version to use, 1 or 2 (OmniLab-based).
+    use_host_network: bool, whether to use host network for the container.
   Returns:
     a HostConfig have all those data.
   """
@@ -430,7 +436,8 @@ def CreateHostConfig(
       shutdown_timeout_sec=shutdown_timeout_sec,
       enable_stackdriver=enable_stackdriver,
       control_server_url=control_server_url,
-      max_concurrent_update_percentage=max_concurrent_update_percentage)
+      max_concurrent_update_percentage=max_concurrent_update_percentage,
+      use_host_network=use_host_network)
   lab_config_pb = lab_config_pb2.LabConfig(
       lab_name=lab_name,
       cluster_configs=[cluster_config_pb],

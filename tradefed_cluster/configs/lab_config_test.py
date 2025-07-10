@@ -97,6 +97,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('host3', host.hostname)
     self.assertEqual('path/to/new/config.xml',
                      host.tf_global_config_path)
+    self.assertTrue(cluster.use_host_network)
 
     cluster = lab_config_pb.cluster_configs[1]
     self.assertEqual('cluster2', cluster.cluster_name)
@@ -107,6 +108,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('host5', cluster.host_configs[1].hostname)
     self.assertEqual(3600, cluster.shutdown_timeout_sec)
     self.assertTrue(cluster.enable_ui_update)
+    self.assertFalse(cluster.use_host_network)
 
   def testParse_invalidYaml(self):
     """Test config file not used lines."""
@@ -205,6 +207,7 @@ class ConfigTest(unittest.TestCase):
                      host_config.operation_mode)
     self.assertEqual(12, host_config.max_concurrent_update_percentage)
     self.assertEqual(0, host_config.force_ats_version)
+    self.assertFalse(host_config.use_host_network)
 
   def testCreateHostConfig_noLabName(self):
     host_config = lab_config.CreateHostConfig(
