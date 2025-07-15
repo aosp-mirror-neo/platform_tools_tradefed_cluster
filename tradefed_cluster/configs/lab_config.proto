@@ -108,9 +108,9 @@ message ClusterConfig {
   optional uint32 max_concurrent_update_percentage = 17;
   // Whether to use host network for the container.
   optional bool use_host_network = 18;
-  // Whether to mount the ~/.android directory from the host, which contains
-  // existing adb keys.
-  optional bool mount_host_android_dir = 19;
+  // Whether to skip mounting the ~/.android directory from the host, which
+  // contains existing adb keys.
+  optional bool skip_mount_host_android_dir = 19;
   // Usage of the cluster under Omni mode.
   // Current valid values are dda, internal_testing and public_testing.
   optional string omni_mode_usage = 20;
