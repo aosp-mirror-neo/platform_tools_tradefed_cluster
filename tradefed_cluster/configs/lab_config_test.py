@@ -98,6 +98,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('path/to/new/config.xml',
                      host.tf_global_config_path)
     self.assertTrue(cluster.use_host_network)
+    self.assertTrue(cluster.skip_mount_host_android_dir)
 
     cluster = lab_config_pb.cluster_configs[1]
     self.assertEqual('cluster2', cluster.cluster_name)
@@ -109,6 +110,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual(3600, cluster.shutdown_timeout_sec)
     self.assertTrue(cluster.enable_ui_update)
     self.assertFalse(cluster.use_host_network)
+    self.assertFalse(cluster.skip_mount_host_android_dir)
 
   def testParse_invalidYaml(self):
     """Test config file not used lines."""
@@ -208,6 +210,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual(12, host_config.max_concurrent_update_percentage)
     self.assertEqual(0, host_config.force_ats_version)
     self.assertFalse(host_config.use_host_network)
+    self.assertFalse(host_config.skip_mount_host_android_dir)
 
   def testCreateHostConfig_noLabName(self):
     host_config = lab_config.CreateHostConfig(

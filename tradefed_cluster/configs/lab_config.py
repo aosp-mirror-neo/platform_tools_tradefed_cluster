@@ -320,6 +320,10 @@ class HostConfig(object):
   def use_host_network(self):
     return self.cluster_config_pb.use_host_network
 
+  @property
+  def skip_mount_host_android_dir(self):
+    return self.cluster_config_pb.skip_mount_host_android_dir
+
   def Save(self, output_file_path):
     """Save the config to a file."""
     lab_config_pb = lab_config_pb2.LabConfig()
@@ -381,6 +385,7 @@ def CreateHostConfig(
     max_concurrent_update_percentage=None,
     force_ats_version=None,
     use_host_network=False,
+    skip_mount_host_android_dir=False,
 ):
   """Create a host config from raw data.
 
@@ -413,6 +418,9 @@ def CreateHostConfig(
       hosts being updated concurrently.
     force_ats_version: int, ATS version to use, 1 or 2 (OmniLab-based).
     use_host_network: bool, whether to use host network for the container.
+    skip_mount_host_android_dir: bool, whether to skip mounting the ~/.android
+      directory from the host, which contains existing adb keys.
+
   Returns:
     a HostConfig have all those data.
   """
@@ -437,7 +445,9 @@ def CreateHostConfig(
       enable_stackdriver=enable_stackdriver,
       control_server_url=control_server_url,
       max_concurrent_update_percentage=max_concurrent_update_percentage,
-      use_host_network=use_host_network)
+      use_host_network=use_host_network,
+      skip_mount_host_android_dir=skip_mount_host_android_dir,
+  )
   lab_config_pb = lab_config_pb2.LabConfig(
       lab_name=lab_name,
       cluster_configs=[cluster_config_pb],
