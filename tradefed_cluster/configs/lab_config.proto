@@ -153,6 +153,9 @@ message HostConfig {
   optional string omni_mode_usage = 15;
   // List of paths on the local host to mount to the docker container.
   repeated string mount_local_paths = 16;
+  // The duration (in seconds) to wait before updating the host upon detecting a
+  // new version.
+  optional int32 update_delay_sec = 17;
 }
 
 // Tmpfs to mount in the dockerized tradefed container.
