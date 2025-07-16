@@ -328,6 +328,12 @@ class HostConfig(object):
     return self.cluster_config_pb.max_concurrent_update_percentage
 
   @property
+  def mount_local_paths(self):
+    """List of paths on the local host to mount to the docker container."""
+    return list(set(list(self.cluster_config_pb.mount_local_paths) +
+                    list(self.host_config_pb.mount_local_paths)))
+
+  @property
   def use_host_network(self):
     return self.cluster_config_pb.use_host_network
 
@@ -399,6 +405,7 @@ def CreateHostConfig(
     omni_mode_usage=None,
     max_local_virtual_devices=None,
     max_concurrent_update_percentage=None,
+    mount_local_paths=(),
     force_ats_version=None,
     use_host_network=False,
     skip_mount_host_android_dir=False,
@@ -434,6 +441,8 @@ def CreateHostConfig(
     max_local_virtual_devices: int, maximum number of virtual devices
     max_concurrent_update_percentage: int, maximum percentage of cluster level
       hosts being updated concurrently.
+    mount_local_paths: list of paths on the local host to mount to the docker
+      container.
     force_ats_version: int, ATS version to use, 1 or 2 (OmniLab-based).
     use_host_network: bool, whether to use host network for the container.
     skip_mount_host_android_dir: bool, whether to skip mounting the ~/.android
@@ -456,6 +465,7 @@ def CreateHostConfig(
       shutdown_timeout_sec=shutdown_timeout_sec,
       max_local_virtual_devices=max_local_virtual_devices,
       update_delay_sec=update_delay_sec,
+      mount_local_paths=mount_local_paths,
   )
   cluster_config_pb = lab_config_pb2.ClusterConfig(
       cluster_name=cluster_name,
@@ -468,6 +478,7 @@ def CreateHostConfig(
       enable_stackdriver=enable_stackdriver,
       control_server_url=control_server_url,
       max_concurrent_update_percentage=max_concurrent_update_percentage,
+      mount_local_paths=mount_local_paths,
       use_host_network=use_host_network,
       skip_mount_host_android_dir=skip_mount_host_android_dir,
   )

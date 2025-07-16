@@ -84,6 +84,8 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('/btmpfs', cluster.tmpfs_configs[1].path)
     self.assertEqual(3, len(cluster.host_configs))
     self.assertEqual(20, cluster.max_concurrent_update_percentage)
+    self.assertEqual(['/path/to/mount/1', '/path/to/mount/2'],
+                     cluster.mount_local_paths)
     host = cluster.host_configs[0]
     self.assertEqual('host1', host.hostname)
     self.assertEqual(5, host.max_local_virtual_devices)
@@ -94,6 +96,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('dda', host.omni_mode_usage)
     self.assertEqual('tfc_url_host_override', host.control_server_url)
     self.assertEqual(100, host.update_delay_sec)
+    self.assertEqual(['/path/to/mount/3'], host.mount_local_paths)
     host = cluster.host_configs[1]
     self.assertEqual('host2', host.hostname)
     self.assertEqual(200, host.update_delay_sec)
@@ -221,6 +224,7 @@ class ConfigTest(unittest.TestCase):
     self.assertFalse(host_config.use_host_network)
     self.assertFalse(host_config.skip_mount_host_android_dir)
     self.assertEqual(100, host_config.update_delay_sec)
+    self.assertEqual([], host_config.mount_local_paths)
 
   def testCreateHostConfig_noLabName(self):
     host_config = lab_config.CreateHostConfig(
