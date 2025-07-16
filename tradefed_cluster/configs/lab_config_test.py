@@ -67,6 +67,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('cluster1', cluster.cluster_name)
     self.assertEqual('user1', cluster.host_login_name)
     self.assertEqual(['user1', 'user2'], cluster.owners)
+    self.assertEqual('public_testing', cluster.omni_mode_usage)
     self.assertEqual('path/to/config.xml', cluster.tf_global_config_path)
     self.assertEqual('tfc_url', cluster.control_server_url)
     self.assertTrue(cluster.graceful_shutdown)
@@ -90,6 +91,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('/atmpfs', host.tmpfs_configs[0].path)
     self.assertEqual(2000, host.tmpfs_configs[0].size)
     self.assertEqual('750', host.tmpfs_configs[0].mode)
+    self.assertEqual('dda', host.omni_mode_usage)
     host = cluster.host_configs[1]
     self.assertEqual('host2', host.hostname)
     self.assertTrue(host.enable_ui_update)
@@ -103,6 +105,7 @@ class ConfigTest(unittest.TestCase):
     cluster = lab_config_pb.cluster_configs[1]
     self.assertEqual('cluster2', cluster.cluster_name)
     self.assertEqual('path/to/config.xml', cluster.tf_global_config_path)
+    self.assertEqual('internal_testing', cluster.omni_mode_usage)
     self.assertEqual(0, len(list(cluster.extra_docker_args)))
     self.assertEqual(2, len(cluster.host_configs))
     self.assertEqual('host4', cluster.host_configs[0].hostname)
@@ -207,6 +210,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('sa@project.google.com', host_config.service_account)
     self.assertEqual(lab_config_pb2.OperationMode.ON_PREMISE,
                      host_config.operation_mode)
+    self.assertEqual('', host_config.omni_mode_usage)
     self.assertEqual(12, host_config.max_concurrent_update_percentage)
     self.assertEqual(0, host_config.force_ats_version)
     self.assertFalse(host_config.use_host_network)

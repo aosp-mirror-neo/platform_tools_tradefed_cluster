@@ -39,6 +39,7 @@ cluster_configs:
   owners:
   - user1
   - user2
+  omni_mode_usage: public_testing
   tf_global_config_path: path/to/config.xml
   control_server_url: tfc_url
   docker_image: gcr.io/dockerized-tradefed/tradefed:golden
@@ -63,6 +64,7 @@ cluster_configs:
     - path: /atmpfs
       size: 2000
       mode: '750'
+    omni_mode_usage: dda
   - hostname: host2
     enable_ui_update: True
   - hostname: host3
@@ -74,6 +76,7 @@ cluster_configs:
   tf_global_config_path: path/to/config.xml
   control_server_url: tfc_control_server_url
   enable_ui_update: True
+  omni_mode_usage: internal_testing
   host_configs:
   - hostname: host4
   - hostname: host5

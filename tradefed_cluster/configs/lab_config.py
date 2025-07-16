@@ -294,6 +294,14 @@ class HostConfig(object):
     return owners
 
   @property
+  def omni_mode_usage(self):
+    """Get usage of the host under Omni mode."""
+    return (
+        self.host_config_pb.omni_mode_usage
+        or self.cluster_config_pb.omni_mode_usage
+    )
+
+  @property
   def engprod_api_key(self):
     """API Key for Android Engprod API discovery."""
     return self.lab_config_pb.engprod_api_key
@@ -381,6 +389,7 @@ def CreateHostConfig(
     engprod_api_key=None,
     ssh_arg=None,
     operation_mode=None,
+    omni_mode_usage=None,
     max_local_virtual_devices=None,
     max_concurrent_update_percentage=None,
     force_ats_version=None,
@@ -413,6 +422,7 @@ def CreateHostConfig(
     engprod_api_key: string, API Key for Android Engprod API discovery.
     ssh_arg: string, ssh args to the host.
     operation_mode: string, host operation mode.
+    omni_mode_usage: string, usage of the host under Omni mode.
     max_local_virtual_devices: int, maximum number of virtual devices
     max_concurrent_update_percentage: int, maximum percentage of cluster level
       hosts being updated concurrently.
@@ -430,16 +440,19 @@ def CreateHostConfig(
       tmpfs_configs=tmpfs_configs,
       enable_autoupdate=enable_autoupdate,
       docker_image=docker_image,
+      omni_mode_usage=omni_mode_usage,
       docker_server=docker_server,
       extra_docker_args=list(extra_docker_args),
       enable_ui_update=enable_ui_update,
       shutdown_timeout_sec=shutdown_timeout_sec,
-      max_local_virtual_devices=max_local_virtual_devices,)
+      max_local_virtual_devices=max_local_virtual_devices,
+  )
   cluster_config_pb = lab_config_pb2.ClusterConfig(
       cluster_name=cluster_name,
       host_login_name=host_login_name,
       host_configs=[host_config_pb],
       docker_image=docker_image,
+      omni_mode_usage=omni_mode_usage,
       graceful_shutdown=graceful_shutdown,
       shutdown_timeout_sec=shutdown_timeout_sec,
       enable_stackdriver=enable_stackdriver,
