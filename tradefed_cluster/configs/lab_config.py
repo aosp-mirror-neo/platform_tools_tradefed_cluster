@@ -164,11 +164,14 @@ class HostConfig(object):
   @property
   def control_server_url(self):
     """Get the master server the host connect to."""
-    # TODO: Deprecated, use control_server_url instead.
-    return (self.cluster_config_pb.control_server_url or
-            self.cluster_config_pb.master_url or
-            self.lab_config_pb.control_server_url or
-            self.lab_config_pb.master_url)
+    return (
+        self.host_config_pb.control_server_url
+        or self.cluster_config_pb.control_server_url
+        # TODO: Deprecated, use control_server_url instead.
+        or self.cluster_config_pb.master_url
+        or self.lab_config_pb.control_server_url
+        or self.lab_config_pb.master_url
+    )
 
   @property
   def operation_mode(self):

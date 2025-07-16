@@ -92,6 +92,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual(2000, host.tmpfs_configs[0].size)
     self.assertEqual('750', host.tmpfs_configs[0].mode)
     self.assertEqual('dda', host.omni_mode_usage)
+    self.assertEqual('tfc_url_host_override', host.control_server_url)
     host = cluster.host_configs[1]
     self.assertEqual('host2', host.hostname)
     self.assertTrue(host.enable_ui_update)
