@@ -61,6 +61,7 @@ cluster_configs:
     max_local_virtual_devices: 5
     extra_docker_args: ['--arg2', 'value2']
     control_server_url: tfc_url_host_override
+    update_delay_sec: 100
     tmpfs_configs:
     - path: /atmpfs
       size: 2000
@@ -68,6 +69,7 @@ cluster_configs:
     omni_mode_usage: dda
   - hostname: host2
     enable_ui_update: True
+    update_delay_sec: 200
   - hostname: host3
     tf_global_config_path: path/to/new/config.xml
     docker_image: gcr.io/dockerized-tradefed/tradefed:canary

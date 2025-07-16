@@ -332,6 +332,10 @@ class HostConfig(object):
     return self.cluster_config_pb.use_host_network
 
   @property
+  def update_delay_sec(self):
+    return self.host_config_pb.update_delay_sec
+
+  @property
   def skip_mount_host_android_dir(self):
     return self.cluster_config_pb.skip_mount_host_android_dir
 
@@ -398,6 +402,7 @@ def CreateHostConfig(
     force_ats_version=None,
     use_host_network=False,
     skip_mount_host_android_dir=False,
+    update_delay_sec=0,
 ):
   """Create a host config from raw data.
 
@@ -433,6 +438,7 @@ def CreateHostConfig(
     use_host_network: bool, whether to use host network for the container.
     skip_mount_host_android_dir: bool, whether to skip mounting the ~/.android
       directory from the host, which contains existing adb keys.
+    update_delay_sec: int, delay in seconds before updating the host.
 
   Returns:
     a HostConfig have all those data.
@@ -449,6 +455,7 @@ def CreateHostConfig(
       enable_ui_update=enable_ui_update,
       shutdown_timeout_sec=shutdown_timeout_sec,
       max_local_virtual_devices=max_local_virtual_devices,
+      update_delay_sec=update_delay_sec,
   )
   cluster_config_pb = lab_config_pb2.ClusterConfig(
       cluster_name=cluster_name,
@@ -475,7 +482,8 @@ def CreateHostConfig(
       engprod_api_key=engprod_api_key,
       ssh_arg=ssh_arg,
       operation_mode=operation_mode,
-      force_ats_version=force_ats_version)
+      force_ats_version=force_ats_version,
+  )
   return HostConfig(host_config_pb, cluster_config_pb, lab_config_pb)
 
 

@@ -93,8 +93,10 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('750', host.tmpfs_configs[0].mode)
     self.assertEqual('dda', host.omni_mode_usage)
     self.assertEqual('tfc_url_host_override', host.control_server_url)
+    self.assertEqual(100, host.update_delay_sec)
     host = cluster.host_configs[1]
     self.assertEqual('host2', host.hostname)
+    self.assertEqual(200, host.update_delay_sec)
     self.assertTrue(host.enable_ui_update)
     host = cluster.host_configs[2]
     self.assertEqual('host3', host.hostname)
@@ -192,7 +194,9 @@ class ConfigTest(unittest.TestCase):
         service_account_key_secret_id='sa_key',
         service_account='sa@project.google.com',
         operation_mode='ON_PREMISE',
-        max_concurrent_update_percentage=12)
+        max_concurrent_update_percentage=12,
+        update_delay_sec=100,
+    )
     self.assertEqual('alab', host_config.lab_name)
     self.assertEqual('acluster', host_config.cluster_name)
     self.assertEqual('ahost', host_config.hostname)
@@ -216,6 +220,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual(0, host_config.force_ats_version)
     self.assertFalse(host_config.use_host_network)
     self.assertFalse(host_config.skip_mount_host_android_dir)
+    self.assertEqual(100, host_config.update_delay_sec)
 
   def testCreateHostConfig_noLabName(self):
     host_config = lab_config.CreateHostConfig(
