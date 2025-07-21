@@ -86,6 +86,7 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual(20, cluster.max_concurrent_update_percentage)
     self.assertEqual(['/path/to/mount/1', '/path/to/mount/2'],
                      cluster.mount_local_paths)
+    self.assertTrue(cluster.drain)
     host = cluster.host_configs[0]
     self.assertEqual('host1', host.hostname)
     self.assertEqual(5, host.max_local_virtual_devices)
@@ -199,6 +200,7 @@ class ConfigTest(unittest.TestCase):
         operation_mode='ON_PREMISE',
         max_concurrent_update_percentage=12,
         update_delay_sec=100,
+        drain=True,
     )
     self.assertEqual('alab', host_config.lab_name)
     self.assertEqual('acluster', host_config.cluster_name)
@@ -225,6 +227,7 @@ class ConfigTest(unittest.TestCase):
     self.assertFalse(host_config.skip_mount_host_android_dir)
     self.assertEqual(100, host_config.update_delay_sec)
     self.assertEqual([], host_config.mount_local_paths)
+    self.assertTrue(host_config.drain)
 
   def testCreateHostConfig_noLabName(self):
     host_config = lab_config.CreateHostConfig(
@@ -347,7 +350,7 @@ class LabConfigPoolTest(unittest.TestCase):
     self.assertEqual('user1', hosts[0].host_login_name)
     self.assertEqual('cluster1', hosts[0].cluster_name)
     self.assertEqual('path/to/config.xml', hosts[0].tf_global_config_path)
-    self.assertEqual('tfc_url', hosts[0].control_server_url)
+    self.assertEqual('tfc_url_host_override', hosts[0].control_server_url)
     self.assertCountEqual(['lab_user1', 'user1', 'user2'], hosts[0].owners)
     self.assertTrue(hosts[0].graceful_shutdown)
     self.assertTrue(hosts[0].enable_stackdriver)

@@ -256,6 +256,11 @@ class HostConfig(object):
     """Get service account."""
     return self.lab_config_pb.service_account
 
+  @property
+  def drain(self):
+    """Whether to drain the hosts before updating."""
+    return self.cluster_config_pb.drain
+
   def SetServiceAccountJsonKeyPath(self, val):
     """Create a new config with given value of service_account_json_key_path."""
     host_config = self.Copy()
@@ -410,6 +415,7 @@ def CreateHostConfig(
     use_host_network=False,
     skip_mount_host_android_dir=False,
     update_delay_sec=0,
+    drain=False,
 ):
   """Create a host config from raw data.
 
@@ -448,6 +454,7 @@ def CreateHostConfig(
     skip_mount_host_android_dir: bool, whether to skip mounting the ~/.android
       directory from the host, which contains existing adb keys.
     update_delay_sec: int, delay in seconds before updating the host.
+    drain: bool, whether to drain the hosts before updating.
 
   Returns:
     a HostConfig have all those data.
@@ -481,6 +488,7 @@ def CreateHostConfig(
       mount_local_paths=mount_local_paths,
       use_host_network=use_host_network,
       skip_mount_host_android_dir=skip_mount_host_android_dir,
+      drain=drain,
   )
   lab_config_pb = lab_config_pb2.LabConfig(
       lab_name=lab_name,

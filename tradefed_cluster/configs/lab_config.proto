@@ -116,6 +116,8 @@ message ClusterConfig {
   optional string omni_mode_usage = 20;
   // List of paths on the local host to mount to the docker container.
   repeated string mount_local_paths = 21;
+  // Whether to drain the hosts before updating.
+  optional bool drain = 22;
 }
 
 // Config for a host.
