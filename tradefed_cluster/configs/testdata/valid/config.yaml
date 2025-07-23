@@ -73,6 +73,7 @@ cluster_configs:
     omni_mode_usage: dda
     mount_local_paths:
     - /path/to/mount/3
+    service_account_json_key_path: path/to/key_host1.json
   - hostname: host2
     enable_ui_update: True
     update_delay_sec: 200

@@ -232,7 +232,10 @@ class HostConfig(object):
   @property
   def service_account_json_key_path(self):
     """The file path of service account json key."""
-    return self.lab_config_pb.service_account_json_key_path
+    return (
+        self.host_config_pb.service_account_json_key_path
+        or self.lab_config_pb.service_account_json_key_path
+    )
 
   @property
   def docker_server(self):

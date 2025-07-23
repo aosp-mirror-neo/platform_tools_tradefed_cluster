@@ -98,6 +98,9 @@ class ConfigTest(unittest.TestCase):
     self.assertEqual('tfc_url_host_override', host.control_server_url)
     self.assertEqual(100, host.update_delay_sec)
     self.assertEqual(['/path/to/mount/3'], host.mount_local_paths)
+    self.assertEqual(
+        'path/to/key_host1.json', host.service_account_json_key_path
+    )
     host = cluster.host_configs[1]
     self.assertEqual('host2', host.hostname)
     self.assertEqual(200, host.update_delay_sec)

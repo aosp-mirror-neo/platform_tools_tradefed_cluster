@@ -158,6 +158,8 @@ message HostConfig {
   // The duration (in seconds) to wait before updating the host upon detecting a
   // new version.
   optional int32 update_delay_sec = 17;
+  // The file path of the service account json key.
+  optional string service_account_json_key_path = 18;
 }
 
 // Tmpfs to mount in the dockerized tradefed container.
