@@ -27,6 +27,7 @@ pytype_strict_library(
     deps = [
         third_party("munch"),
         third_party("six"),
+        "//third_party/py/pipes",
     ],
 )
 
