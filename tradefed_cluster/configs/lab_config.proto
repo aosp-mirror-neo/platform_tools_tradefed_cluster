@@ -65,6 +65,10 @@ message LabConfig {
   optional OperationMode operation_mode = 18;
   // Force to use ATS version 1 or 2 (OmniLab-based). Valid values are 1 or 2.
   optional int32 force_ats_version = 19;
+  // Run the MTT Daemon as a user service (instead of a system service run by
+  // the root user). Using this option saves the need to have sudo access to
+  // run the MTT Daemon.
+  optional bool run_mttd_as_user_service = 20;
 }
 
 // Config for a cluster.

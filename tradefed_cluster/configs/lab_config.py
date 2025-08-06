@@ -296,6 +296,11 @@ class HostConfig(object):
                 self.lab_config_pb.enable_ui_update)
 
   @property
+  def run_mttd_as_user_service(self):
+    """Whether MTT Daemon should be run as a user service."""
+    return bool(self.lab_config_pb.run_mttd_as_user_service)
+
+  @property
   def owners(self):
     """Inherit the owners field from parent cluster or lab."""
     owners = list(self.lab_config_pb.owners)
@@ -419,6 +424,7 @@ def CreateHostConfig(
     skip_mount_host_android_dir=False,
     update_delay_sec=0,
     drain=False,
+    run_mttd_as_user_service=False,
 ):
   """Create a host config from raw data.
 
@@ -458,6 +464,7 @@ def CreateHostConfig(
       directory from the host, which contains existing adb keys.
     update_delay_sec: int, delay in seconds before updating the host.
     drain: bool, whether to drain the hosts before updating.
+    run_mttd_as_user_service: bool, whether to run MTT Daemon as a user service.
 
   Returns:
     a HostConfig have all those data.
@@ -505,6 +512,7 @@ def CreateHostConfig(
       ssh_arg=ssh_arg,
       operation_mode=operation_mode,
       force_ats_version=force_ats_version,
+      run_mttd_as_user_service=run_mttd_as_user_service,
   )
   return HostConfig(host_config_pb, cluster_config_pb, lab_config_pb)
 
