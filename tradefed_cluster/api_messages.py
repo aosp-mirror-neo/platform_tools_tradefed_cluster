@@ -309,10 +309,11 @@ class CommandAttemptMessage(messages.Message):
   run_index = messages.IntegerField(24)
   attempt_index = messages.IntegerField(25)
   log_dir_path = messages.StringField(26)
-  mobly_test_id = messages.StringField(27, repeated=True)
+  mobly_test_id = messages.StringField(27, repeated=True)  # Deprecated.
   tf_log_path = messages.StringField(28)
   working_job_id = messages.StringField(29)
   working_test_id = messages.StringField(30)
+  non_tradefed_log_dir_names = messages.StringField(31, repeated=True)
 
 
 class CommandAttemptMessageCollection(messages.Message):
