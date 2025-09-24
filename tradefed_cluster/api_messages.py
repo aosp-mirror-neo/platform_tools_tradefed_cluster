@@ -211,13 +211,15 @@ class TestResource(messages.Message):
   Attributes:
     url: a url to download a test resource from.
     name: a filename with which a test resource to be stored in the test working
-        directory.
+      directory.
     path: an option relative path to where a test resource should be downloaded
-        to.
+      to.
     decompress: whether the host should decompress the downloaded file.
     decompress_dir: the directory where the host decompresses the file.
     mount_zip: whether to mount a zip file.
     params: test resource parameters.
+    original_download_url: the original download url of the test resource. Do
+      not set the field if the test resource is locally generated.
   """
   url = messages.StringField(1, required=True)
   name = messages.StringField(2)
@@ -226,6 +228,7 @@ class TestResource(messages.Message):
   decompress_dir = messages.StringField(5)
   mount_zip = messages.BooleanField(6)
   params = messages.MessageField(TestResourceParameters, 7)
+  original_download_url = messages.StringField(8)
 
 
 class TestResourceCollection(messages.Message):
