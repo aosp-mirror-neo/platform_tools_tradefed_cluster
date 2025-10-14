@@ -313,7 +313,8 @@ class CommandAttemptMessage(messages.Message):
   attempt_index = messages.IntegerField(25)
   log_dir_path = messages.StringField(26)
   mobly_test_id = messages.StringField(27, repeated=True)  # Deprecated.
-  tf_log_path = messages.StringField(28)
+  tf_log_path = messages.StringField(28)  # Deprecated. Use tf_log_paths instead
+  tf_log_paths = messages.MessageField(KeyValuePair, 32, repeated=True)
   working_job_id = messages.StringField(29)
   working_test_id = messages.StringField(30)
   non_tradefed_log_dir_names = messages.StringField(31, repeated=True)
