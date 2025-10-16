@@ -42,9 +42,6 @@ from tradefed_cluster.util import email_sender
 PRODUCT_AGGREGATION = 'product'
 CLUSTER_AGGREGATION = 'cluster'
 UNKNOWN_KEY = 'unknown'
-DEVICE_OFFLINE_STATES = [
-    'Fastboot', 'Gone', 'Ignored', 'Unavailable', UNKNOWN_KEY
-]
 DEVICE_REPORT_TEMPLATE = 'device_report_template.html'
 DEFAULT_SENDER = 'Tradefed Cluster <noreply@example.com>'
 DEFAULT_REPLY_TO = 'android-test-infra@example.com'
@@ -454,11 +451,11 @@ def BuildDeviceReport(fake=None):
     product_report = DeviceReport(
         devices=filtered_devices,
         aggregation=PRODUCT_AGGREGATION,
-        states=DEVICE_OFFLINE_STATES)
+        states=common.DEVICE_OFFLINE_STATES)
     cluster_report = DeviceReport(
         devices=filtered_devices,
         aggregation=CLUSTER_AGGREGATION,
-        states=DEVICE_OFFLINE_STATES)
+        states=common.DEVICE_OFFLINE_STATES)
     host_report = HostReport(hosts=hosts)
     EmailDeviceReport(
         report_config=report_config,

@@ -189,6 +189,7 @@ class DeviceState(object):
   LAMEDUCK = "LAMEDUCK"
   MISSING = "MISSING"
   OFFLINE = "OFFLINE"
+  FAILED = "FAILED"
 
 DEVICE_ALL_STATES = (
     DeviceState.ALLOCATED,
@@ -208,6 +209,7 @@ DEVICE_ALL_STATES = (
     DeviceState.IDLE,
     DeviceState.BUSY,
     DeviceState.OFFLINE,
+    DeviceState.FAILED,
 )
 
 DEVICE_AVAILABLE_STATES = (
@@ -228,6 +230,9 @@ DEVICE_ONLINE_STATES = (
     DeviceState.PREPPING,
     DeviceState.IDLE,
     DeviceState.BUSY,
+    DeviceState.FAILED,
+    DeviceState.DIRTY,
+    DeviceState.LAMEDUCK,
 )
 
 
