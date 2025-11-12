@@ -17,12 +17,14 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import functools
-from six.moves import map
+import logging
+import os
 
 
 from google import auth
 from google.cloud import ndb
 from google.cloud.ndb import context as context_module
+from six.moves import map
 
 # All methods/classes used by tradefed_cluster are defined below
 Expando = ndb.Expando
@@ -147,6 +149,32 @@ def with_ndb_context(method):
           legacy_data=False):
         return method(*args, **kwargs)
     # If endpoint is inside a NDB context don't create a new context.
+    return method(*args, **kwargs)
+
+  return wrap_endpoint
+
+
+def with_local_ndb_context(method):
+  """Decorator to wrap endpoints in a local NDB emulator Context."""
+
+  @functools.wraps(method)
+  def wrap_endpoint(*args, **kwargs):
+    """Wraps the endpoint method in a local NDB Context."""
+    context = context_module.get_context(raise_context_error=False)
+    if not context:
+      emulator_host = os.getenv('DATASTORE_EMULATOR_HOST')
+      if not emulator_host:
+        error_message = (
+            'DATASTORE_EMULATOR_HOST environment variable is not set.'
+        )
+        logging.error(error_message)
+        raise RuntimeError(error_message)
+
+      # Provide a fake project ID to prevent the client from trying to
+      # determine it and triggering the credential search.
+      with ndb.Client(project='fake-id').context(legacy_data=False):
+        return method(*args, **kwargs)
+    # If endpoint is already inside an NDB context, don't create a new one.
     return method(*args, **kwargs)
 
   return wrap_endpoint
