@@ -6,7 +6,7 @@ load("//tools/build_defs/license:license.bzl", "license")
 load("//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
 
 package(
-    default_applicable_licenses = ["//tradefed_cluster:license"],
+    default_applicable_licenses = [":license"],
     default_visibility = [":tradefed_cluster_clients"],
 )
 
