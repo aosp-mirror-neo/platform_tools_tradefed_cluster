@@ -229,6 +229,7 @@ class TestResource(messages.Message):
   mount_zip = messages.BooleanField(6)
   params = messages.MessageField(TestResourceParameters, 7)
   original_download_url = messages.StringField(8)
+  password = messages.StringField(9)
 
 
 class TestResourceCollection(messages.Message):
