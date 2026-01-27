@@ -1374,6 +1374,7 @@ py_library(
     srcs = [
         "host_event.py",
     ],
+    strict_deps = False,
 )
 
 py_test(

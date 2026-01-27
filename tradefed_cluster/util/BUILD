@@ -202,6 +202,7 @@ py_library(
     srcs = [
         "datastore_emulator.py",
     ],
+    strict_deps = False,
     deps = [
         third_party("googledatastore/v1:datastore_emulator"),
     ],

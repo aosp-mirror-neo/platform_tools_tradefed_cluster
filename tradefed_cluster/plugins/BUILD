@@ -13,6 +13,7 @@ py_library(
     srcs = [
         "appengine.py",
     ],
+    strict_deps = False,
     deps = [
         ":base_lib",
     ],
@@ -44,6 +45,7 @@ py_library(
     srcs = [
         "google_cloud.py",
     ],
+    strict_deps = False,
     deps = [
         ":base_lib",
         third_party("google-cloud-tasks"),
@@ -68,6 +70,7 @@ py_library(
     srcs = [
         "metric_client.py",
     ],
+    strict_deps = False,
 )
 
 pytype_strict_library(

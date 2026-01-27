@@ -22,6 +22,7 @@ py_library(
     srcs = [
         "lab_config.py",
     ],
+    strict_deps = False,
     visibility = ["//visibility:public"],
     deps = [
         ":lab_config_py_pb2",
@@ -36,6 +37,7 @@ py_library(
     srcs = [
         "unified_lab_config.py",
     ],
+    strict_deps = False,
     visibility = ["//visibility:public"],
     deps = [
         third_party("ansible"),
