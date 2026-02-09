@@ -57,6 +57,7 @@ py_test(
     srcs = [
         "acl_check_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_messages_lib",
@@ -86,6 +87,7 @@ py_test(
     srcs = [
         "affinity_manager_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":affinity_manager_lib",
@@ -154,6 +156,7 @@ py_test(
     srcs = [
         "api_messages_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_messages_lib",
@@ -230,6 +233,7 @@ py_test(
     srcs = [
         "cluster_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -264,6 +268,7 @@ py_test(
     srcs = [
         "cluster_device_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_messages_lib",
@@ -309,6 +314,7 @@ py_test(
     srcs = [
         "cluster_host_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -342,6 +348,7 @@ py_test(
     srcs = [
         "lab_management_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -371,6 +378,7 @@ py_test(
     srcs = [
         "command_attempt_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -401,6 +409,7 @@ py_test(
     srcs = [
         "command_attempt_monitor_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_attempt_monitor_lib",
@@ -437,6 +446,7 @@ py_test(
     srcs = [
         "command_error_type_config_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_error_type_config_lib",
@@ -465,6 +475,7 @@ py_test(
     srcs = [
         "command_event_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -496,6 +507,7 @@ py_test(
     srcs = [
         "command_event_handler_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_event_handler_lib",
@@ -526,6 +538,7 @@ py_test(
     srcs = [
         "command_event_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":command_event_lib",
         ":command_event_test_util",
@@ -578,6 +591,7 @@ py_test(
     srcs = [
         "command_manager_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_messages_lib",
@@ -603,6 +617,7 @@ py_test(
     srcs = [
         "command_monitor_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_lib",
@@ -646,6 +661,7 @@ py_test(
     srcs = [
         "command_task_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":affinity_manager_lib",
@@ -674,6 +690,7 @@ py_test(
     srcs = [
         "command_task_matcher_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":api_messages_lib",
         ":command_task_matcher_lib",
@@ -703,6 +720,7 @@ py_test(
     srcs = [
         "test_harness_image_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -731,6 +749,7 @@ py_test(
     srcs = [
         "command_task_store_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_task_store_lib",
@@ -764,6 +783,7 @@ py_test(
     srcs = [
         "commander_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_event_test_util",
@@ -798,6 +818,7 @@ py_test(
     srcs = [
         "common_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":common_lib",
         third_party("six"),
@@ -871,6 +892,7 @@ py_test(
         "test_yaml/lab-config-with-duplicated-cluster.yaml",
         "test_yaml/presubmit-dockerized-tf.yaml",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":config_syncer_gcs_to_ndb_lib",
@@ -905,6 +927,7 @@ py_test(
     srcs = [
         "coordinator_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -937,6 +960,7 @@ py_test(
     srcs = [
         "datastore_entities_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":common_lib",
@@ -965,6 +989,7 @@ py_test(
     srcs = [
         "datastore_util_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_messages_lib",
@@ -1012,6 +1037,7 @@ py_test(
     srcs = [
         "device_info_cleaner_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_entities_lib",
@@ -1043,6 +1069,7 @@ py_test(
     srcs = [
         "device_history_cleaner_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":device_history_cleaner_lib",
@@ -1078,6 +1105,7 @@ py_test(
     srcs = [
         "device_info_reporter_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1115,6 +1143,7 @@ py_test(
     srcs = [
         "device_manager_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1153,6 +1182,7 @@ py_test(
     srcs = [
         "device_monitor_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1187,6 +1217,7 @@ py_test(
     srcs = [
         "device_snapshot_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1215,6 +1246,7 @@ py_test(
     srcs = [
         "filter_hint_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_messages_lib",
@@ -1249,6 +1281,7 @@ py_test(
     srcs = [
         "device_blocklist_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1273,6 +1306,7 @@ py_test(
     srcs = [
         "device_blocker_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1325,6 +1359,7 @@ py_test(
     srcs = [
         "harness_image_metadata_syncer_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_entities_lib",
@@ -1343,6 +1378,7 @@ py_test(
     srcs = [
         "harness_update_scheduler_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":common_lib",
@@ -1361,6 +1397,7 @@ py_test(
     srcs = [
         "host_event_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1382,6 +1419,7 @@ py_test(
     srcs = [
         "host_event_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":api_messages_lib",
         ":host_event_lib",
@@ -1410,6 +1448,7 @@ py_test(
     srcs = [
         "lab_resource_monitor_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":lab_resource_monitor_lib",
@@ -1437,6 +1476,7 @@ py_test(
     srcs = [
         "metric_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":metric_lib",
         third_party("mock"),
@@ -1466,6 +1506,7 @@ py_test(
     srcs = [
         "note_manager_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1496,6 +1537,7 @@ py_test(
     srcs = [
         "notification_handler_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1527,6 +1569,7 @@ py_test(
     srcs = [
         "notifier_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_test_util_lib",
@@ -1566,6 +1609,7 @@ py_test(
     srcs = [
         "predefined_message_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1596,6 +1640,7 @@ py_test(
     srcs = [
         "report_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1628,6 +1673,7 @@ py_test(
     srcs = [
         "request_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1660,6 +1706,7 @@ py_test(
     srcs = [
         "request_manager_test.py",
     ],
+    strict_deps = False,
     tags = [
         "not_run:arm",
         "requires-net:external",
@@ -1700,6 +1747,7 @@ py_test(
     srcs = [
         "request_sync_monitor_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":command_event_test_util",
@@ -1731,6 +1779,7 @@ py_test(
     srcs = [
         "run_target_api_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":api_test_lib",
@@ -1771,6 +1820,7 @@ py_test(
     srcs = [
         "server_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":server_lib",

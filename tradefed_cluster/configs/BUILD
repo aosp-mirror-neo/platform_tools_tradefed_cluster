@@ -68,6 +68,7 @@ py_test(
     data = [
         ":testdata",
     ],
+    strict_deps = False,
     deps = [
         ":lab_config_lib",
         third_party("six"),
@@ -82,6 +83,7 @@ py_test(
     data = [
         ":testdata",
     ],
+    strict_deps = False,
     deps = [
         ":unified_lab_config_lib",
     ],

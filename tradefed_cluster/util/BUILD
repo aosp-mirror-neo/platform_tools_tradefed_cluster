@@ -36,6 +36,7 @@ py_test(
     srcs = [
         "command_util_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":command_util",
         third_party("mock"),
@@ -62,6 +63,7 @@ py_test(
     data = [
         ":testdata",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":email_sender_lib",
@@ -104,6 +106,7 @@ py_test(
     srcs = [
         "ndb_util_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":ndb_shim_lib",
@@ -130,6 +133,7 @@ py_test(
     srcs = [
         "pubsub_client_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":pubsub_client_lib",
@@ -154,6 +158,7 @@ py_test(
     srcs = [
         "elasticsearch_client_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":elasticsearch_client_lib",
         "//third_party/py/elasticsearch",
@@ -213,6 +218,7 @@ py_test(
     srcs = [
         "datastore_emulator_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":datastore_emulator_lib",

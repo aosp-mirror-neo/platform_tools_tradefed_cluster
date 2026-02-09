@@ -24,6 +24,7 @@ py_test(
     srcs = [
         "app_manager_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":app_manager_lib",
         third_party("absl/testing:absltest"),
@@ -49,6 +50,7 @@ py_test(
     srcs = [
         "file_storage_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":file_storage_lib",
         third_party("absl/testing:absltest"),
@@ -78,6 +80,7 @@ py_test(
     srcs = [
         "acl_service_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":acl_service_lib",
@@ -109,6 +112,7 @@ py_test(
     srcs = [
         "mailer_test.py",
     ],
+    strict_deps = False,
     deps = [
         ":mailer_lib",
         third_party("absl/testing:absltest"),
@@ -137,6 +141,7 @@ py_test(
     srcs = [
         "task_scheduler_test.py",
     ],
+    strict_deps = False,
     tags = ["not_run:arm"],
     deps = [
         ":task_scheduler_lib",
