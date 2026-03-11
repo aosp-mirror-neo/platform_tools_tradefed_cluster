@@ -457,6 +457,17 @@ class RequestType(messages.Enum):
   MANAGED = 1     # A request for which TFC/TF handles setup/teardown process.
 
 
+class TestModuleResult(messages.Message):
+  """A class representing a test module result."""
+
+  name = messages.StringField(1)
+  complete = messages.BooleanField(2)
+  duration_ms = messages.IntegerField(3)
+  passed_tests = messages.IntegerField(4)
+  failed_tests = messages.IntegerField(5)
+  total_tests = messages.IntegerField(6)
+
+
 class RequestMessage(messages.Message):
   """A class representing a test request.
 
@@ -536,6 +547,9 @@ class RequestMessage(messages.Message):
 
   error_reason = messages.StringField(28)
   error_message = messages.StringField(29)
+  test_module_results = messages.MessageField(
+      TestModuleResult, 30, repeated=True
+  )
 
 
 class RequestMessageCollection(messages.Message):
