@@ -28,7 +28,7 @@ py_library(
         ":lab_config_py_pb2",
         ":unified_lab_config_lib",
         third_party("strictyaml"),
-        "//net/proto2/python/public",
+        "//third_party/py/google/protobuf",
     ],
 )
 

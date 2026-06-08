@@ -26,7 +26,7 @@ import strictyaml as syaml
 try:
   from google.protobuf import json_format
 except ImportError:
-  from google3.net.proto2.python.public import json_format
+  from google.protobuf import json_format
 
 
 from tradefed_cluster.configs import lab_config_pb2
