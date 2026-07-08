@@ -25,7 +25,7 @@ import re
 import uuid
 
 import six
-from six.moves import zip
+from six.moves import zip  # pyrefly: ignore[missing-source-for-stubs]
 
 
 from tradefed_cluster import affinity_manager

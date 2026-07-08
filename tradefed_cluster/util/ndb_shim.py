@@ -24,7 +24,7 @@ import os
 from google import auth
 from google.cloud import ndb
 from google.cloud.ndb import context as context_module
-from six.moves import map
+from six.moves import map  # pyrefly: ignore[missing-source-for-stubs]
 
 # All methods/classes used by tradefed_cluster are defined below
 Expando = ndb.Expando
@@ -123,9 +123,9 @@ class EnumProperty(IntegerProperty):
     Raises:
       TypeError if the value is not an instance of self._enum_type.
     """
-    if not isinstance(value, self._enum_type):
+    if not isinstance(value, self._enum_type):  # pyrefly: ignore[bad-argument-type]
       raise TypeError('Expected a %s instance, got %r instead' %
-                      (self._enum_type.__name__, value))
+                      (self._enum_type.__name__, value))  # pyrefly: ignore[missing-attribute]
 
   def _to_base_type(self, enum):
     """Convert an Enum value to a base type (integer) value."""
@@ -133,7 +133,7 @@ class EnumProperty(IntegerProperty):
 
   def _from_base_type(self, val):
     """Convert a base type (integer) value to an Enum value."""
-    return self._enum_type(val)
+    return self._enum_type(val)  # pyrefly: ignore[not-callable]
 
 
 def with_ndb_context(method):

@@ -30,7 +30,7 @@ from protorpc import message_types
 from protorpc import messages
 from protorpc import protojson
 from protorpc import remote
-from six.moves import range
+from six.moves import range  # pyrefly: ignore[missing-source-for-stubs]
 
 
 from tradefed_cluster import api_common

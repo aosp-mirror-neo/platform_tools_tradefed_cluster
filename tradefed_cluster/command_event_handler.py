@@ -156,7 +156,7 @@ def HandleCommandEvent():
     try:
       logging.info(_Truncate(obj))
       event = command_event.CommandEvent(**obj)
-      if (event.time + datetime.timedelta(days=COMMAND_EVENT_TIMEOUT_DAYS) <
+      if (event.time + datetime.timedelta(days=COMMAND_EVENT_TIMEOUT_DAYS) <  # pyrefly: ignore[unsupported-operation]
           common.Now()):
         logging.warning("Ignore event retried for %d days:\n%s",
                         COMMAND_EVENT_TIMEOUT_DAYS, event)

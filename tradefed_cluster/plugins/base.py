@@ -59,7 +59,7 @@ CommandInfo = collections.namedtuple('CommandInfo', [
 ])
 
 
-class Plugin(six.with_metaclass(PluginMetaClass, object)):
+class Plugin(six.with_metaclass(PluginMetaClass, object)):  # pyrefly: ignore[invalid-inheritance]
   """A base class for Plugin."""
 
   def OnCommandTasksLease(self, command_tasks):

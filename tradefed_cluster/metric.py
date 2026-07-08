@@ -188,13 +188,13 @@ def RecordCommandTimingMetric(cluster_id,
   }
 
   if latency_secs is None:
-    if (create_timestamp.tzinfo is not None and
-        create_timestamp.tzinfo.utcoffset(create_timestamp) is not None):
+    if (create_timestamp.tzinfo is not None and  # pyrefly: ignore[missing-attribute]
+        create_timestamp.tzinfo.utcoffset(create_timestamp) is not None):  # pyrefly: ignore[missing-attribute]
       # create_timestamp is an aware datetime. Making it naive.
-      create_timestamp = create_timestamp.astimezone(datetime.timezone.utc)
+      create_timestamp = create_timestamp.astimezone(datetime.timezone.utc)  # pyrefly: ignore[missing-attribute]
       create_timestamp = create_timestamp.replace(tzinfo=None)
     latency_secs = (
-        datetime.datetime.utcnow() - create_timestamp).total_seconds()
+        datetime.datetime.utcnow() - create_timestamp).total_seconds()  # pyrefly: ignore[unsupported-operation]
   logging.debug(
       '%s command for cluster %s and run target %s took %s seconds',
       command_action.name, cluster_id, run_target, latency_secs)

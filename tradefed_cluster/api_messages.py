@@ -65,7 +65,7 @@ class NonEmptyStringField(messages.StringField):
         else:
           validation_error = messages.ValidationError(
               "Field %s encountered empty string %s" % (name, value))
-          validation_error.field_name = name
+          validation_error.field_name = name  # pyrefly: ignore[missing-attribute]
         raise validation_error
     messages.StringField.validate_element(self, value)
 

@@ -46,7 +46,7 @@ class CommandEvent(object):
     self.type = kwargs.get("type")
     self.time = kwargs.get("time")
     if not isinstance(self.time, datetime.datetime):
-      self.time = datetime.datetime.utcfromtimestamp(self.time)
+      self.time = datetime.datetime.utcfromtimestamp(self.time)  # pyrefly: ignore[bad-argument-type]
     self.hostname = kwargs.get("hostname")
     # TODO Deprecated.
     self.device_serial = kwargs.get("device_serial")

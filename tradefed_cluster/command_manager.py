@@ -25,8 +25,8 @@ import zlib
 
 from protorpc import protojson
 import six
-from six.moves import range
-from six.moves import zip
+from six.moves import range  # pyrefly: ignore[missing-source-for-stubs]
+from six.moves import zip  # pyrefly: ignore[missing-source-for-stubs]
 
 
 from tradefed_cluster import api_messages
