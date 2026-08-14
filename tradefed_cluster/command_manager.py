@@ -42,9 +42,7 @@ from tradefed_cluster.services import task_scheduler
 from tradefed_cluster.util import ndb_shim as ndb
 
 # Maximum number of tasks created for a single command with a run_count > 1
-
 MAX_TASK_COUNT = 20
-
 
 # Command is marked as CANCELED or ERROR if the number of attempts of that
 # state exceeds floor(BASE + run_count *  RATIO).
